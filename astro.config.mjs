@@ -7,5 +7,12 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind()]
+  markdown: {
+    shikiConfig: {
+      theme: 'material-theme-ocean',
+      defaultColor: false,
+    }
+  },
+  integrations: [react(), tailwind()],
+  output: "server"
 });
