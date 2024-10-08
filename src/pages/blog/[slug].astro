@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const { slug } = Astro.params;
+const blogPosts = await getCollection("blog");
+const post = blogPosts.find((p) => p.slug === slug);
+const { Content } = await post?.render();
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${slug}`);
+}
+
+function getOrdinalSuffix(day) {
+  if (day > 3 && day < 21) return "th";
+  switch (day % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+}
+
+function formatDate(date) {
+  const d = new Date(date);
+  const day = d.getDate();
+  const dayWithSuffix = day + getOrdinalSuffix(day);
+  return `${dayWithSuffix} ${d.toLocaleString("default", { month: "long" })}, ${d.getFullYear()}`;
+}
+---
+
+<Layout>
+  <div class="relative w-full flex justify-center items-center p-32">
+    <div class="w-[50%]">
+      <h1 class="text-5xl font-extrabold">{post.data.title}</h1>
+      <p class="text-md font-medium mt-4">
+        Published on {formatDate(post.data.date)}
+      </p>
+      <div class="my-16">
+        <Content />
+      </div>
+      <footer class="mt-8">
+        {
+          post.data.tags?.map((tag) => (
+            <span class="text-md bg-neutral-300 font-semibold px-4 py-2 rounded-full mr-2">
+              # {tag}
+            </span>
+          ))
+        }
+      </footer>
+    </div>
+  </div>
+</Layout>
