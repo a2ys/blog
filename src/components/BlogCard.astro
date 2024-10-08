@@ -3,7 +3,7 @@ const { title, body, imageSrc, slug } = Astro.props;
 ---
 
 <div class="border-2 border-black rounded-lg shadow-xl relative inline-block">
-  <a href={slug}>
+  <a href={`/blog/${slug}`}>
     <img
       class="w-full object-cover rounded-t-lg h-48"
       src={imageSrc}
@@ -11,7 +11,7 @@ const { title, body, imageSrc, slug } = Astro.props;
     />
   </a>
   <hr class="border-black border-t-2" />
-  <a href={slug}>
+  <a href={`/blog/${slug}`}>
     <div class="p-4">
       <h1 class="text-xl font-extrabold">{title}</h1>
       <p class="py-2 text-md font-medium">{body}</p>

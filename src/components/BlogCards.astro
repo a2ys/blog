@@ -1,42 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import BlogCard from "./BlogCard.astro";
+
+const blogPosts = await getCollection("blog");
 ---
 
 <div class="grid grid-cols-3 w-[75%] gap-6">
-  <BlogCard
-    title="Blog Card"
-    body="This is the short description of the blog card."
-    imageSrc="/test.jpg"
-    slug="/blog"
-  />
-  <BlogCard
-    title="Blog Card"
-    body="This is the short description of the blog card."
-    imageSrc="/test.jpg"
-    slug="/blog"
-  />
-  <BlogCard
-    title="Blog Card"
-    body="This is the short description of the blog card."
-    imageSrc="/test.jpg"
-    slug="/blog"
-  />
-  <BlogCard
-    title="Blog Card"
-    body="This is the short description of the blog card."
-    imageSrc="/test.jpg"
-    slug="/blog"
-  />
-  <BlogCard
-    title="Blog Card"
-    body="This is the short description of the blog card."
-    imageSrc="/test.jpg"
-    slug="/blog"
-  />
-  <BlogCard
-    title="Blog Card"
-    body="This is the short description of the blog card."
-    imageSrc="/test.jpg"
-    slug="/blog"
-  />
+  {
+    blogPosts.map((post) => (
+      <BlogCard
+        title={post.data.title}
+        body={post.data.description}
+        image="/test.jpg"
+        slug={post.slug}
+      />
+    ))
+  }
 </div>
