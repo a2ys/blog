@@ -5,6 +5,8 @@ import react from '@astrojs/react';
 
 import tailwind from '@astrojs/tailwind';
 
+import vercel from '@astrojs/vercel/serverless';
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -13,6 +15,8 @@ export default defineConfig({
       defaultColor: false,
     }
   },
+
   integrations: [react(), tailwind()],
-  output: "server"
+  output: "server",
+  adapter: vercel()
 });
