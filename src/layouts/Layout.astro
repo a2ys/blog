@@ -12,8 +12,10 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
     <title>{title || "Blog"}</title>
@@ -26,10 +28,59 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-ExtraLight.woff2") format("woff2");
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Hauora";
+    src: url("/Hauora-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+  }
+
   * {
     margin: 0;
     padding: 0;
-    font-family: "Satoshi", sans-serif;
+    font-family: "Hauora", sans-serif;
   }
 
   .link {
@@ -51,5 +102,20 @@ const { title } = Astro.props;
 
   .link:hover::after {
     width: 100%;
+  }
+
+  pre {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  code {
+    overflow-x: auto;
+  }
+
+  span.line > span {
+    font-family: "Roboto Mono", monospace !important;
+    font-weight: 400;
   }
 </style>
