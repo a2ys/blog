@@ -40,87 +40,25 @@ function formatDate(date: Date) {
 }
 ---
 
-<!-- <Layout>
-  <div class="relative w-full flex justify-center items-center p-32">
-    <div class="w-[50%] mx-auto">
+<Layout>
+  <div class="mb-8 py-16 bg-gray-900 text-white">
+    <div class="w-[60%] mx-auto">
       <h1 class="text-5xl font-extrabold">{entry.data.title}</h1>
-      <p class="text-md font-medium mt-4">
+      <p class="text-xl details">
         {entry.data.author} • {formatDate(entry.data.date)}
       </p>
-      <div class="my-16">
-        <Content />
-      </div>
-      <footer class="mt-8">
-        {
-          entry.data.tags?.map((tag) => (
-            <span class="text-md bg-neutral-300 font-semibold px-4 py-2 rounded-full mr-2 border-b-2 border-b-neutral-950">
-              # {tag}
-            </span>
-          ))
-        }
-      </footer>
     </div>
   </div>
-</Layout>
-
-<style is:global>
-  h1 {
-    @apply text-4xl;
-  }
-
-  h2 {
-    @apply text-3xl;
-  }
-
-  h3 {
-    @apply text-2xl;
-  }
-
-  h4 {
-    @apply text-xl;
-  }
-
-  h5 {
-    @apply text-lg;
-  }
-
-  h6 {
-    @apply text-base;
-  }
-
-  p {
-    @apply text-lg font-medium;
-  }
-
-  pre {
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 1rem 0;
-    font-family: "Roboto Mono", monospace !important;
-    @apply text-lg;
-  }
-
-  code {
-    overflow-x: auto;
-    font-family: "Roboto Mono", monospace !important;
-    font-weight: 400;
-  }
-</style> -->
-<Layout>
-  <div class="w-[40%] mx-auto py-16">
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-extrabold">{entry.data.title}</h1>
-      <p class="text-xl">
-        {entry.data.author} • {formatDate(entry.data.date)}
-      </p>
-    </div>
+  <div class="w-[40%] mx-auto py-4">
     <div class="post-body">
       <Content />
     </div>
     <footer class="mt-12 text-center">
       {
-        entry.data.tags?.map((tag) => (
-          <span class="bg-neutral-300 px-4 py-2 rounded-xl mr-4"># {tag}</span>
+        entry.data.tags?.map((tag: string) => (
+          <span class="bg-gray-300 px-4 py-2 rounded-xl mr-4 font-semibold cursor-pointer">
+            # {tag}
+          </span>
         ))
       }
     </footer>
@@ -140,36 +78,37 @@ function formatDate(date: Date) {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 800;
     margin: 1rem 0;
   }
 
   h3 {
-    font-size: 1.75rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 700;
     margin: 1rem 0;
   }
 
   h4 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin: 1rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0.8rem 0;
   }
 
   h5 {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.7rem 0;
   }
 
   h6 {
-    font-size: 1rem;
-    font-weight: 800;
-    margin: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.7rem 0;
   }
 
   p {
+    font-size: 1.1rem;
     font-weight: 500;
     margin: 1rem 0;
   }
@@ -178,13 +117,11 @@ function formatDate(date: Date) {
     border-radius: 0.5rem;
     padding: 1rem;
     margin: 1rem 0;
-    font-family: "Roboto Mono", monospace !important;
   }
 
   code {
     overflow-x: auto;
     font-family: "Roboto Mono", monospace !important;
-    font-weight: 500;
   }
 
   img {
@@ -195,7 +132,7 @@ function formatDate(date: Date) {
 
   a {
     color: #3182ce;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: 500;
   }
 
@@ -258,5 +195,18 @@ function formatDate(date: Date) {
     padding: 0.5rem 1rem;
     border-bottom: 1px solid;
     font-weight: 500;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+  }
+
+  .details {
+    font-family: "Roboto Mono", monospace !important;
+    @apply text-lg font-light leading-6 italic;
   }
 </style>
