@@ -17,6 +17,7 @@ FastAPI is a high-performance web framework for building APIs with Python 3.7+ b
 ## Prerequisites
 
 Before starting, ensure you have the following:
+
 - Basic knowledge of Python
 - Python 3.7 or higher installed on your machine
 - Familiarity with REST API concepts
