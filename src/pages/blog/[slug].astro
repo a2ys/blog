@@ -42,21 +42,23 @@ function formatDate(date: Date) {
 
 <Layout>
   <div class="mb-8 py-16 bg-gray-900 text-white">
-    <div class="w-[60%] mx-auto">
+    <div class="w-[80%] sm:w-[70%] lg:w-[80%] mx-auto">
       <h1 class="text-5xl font-extrabold">{entry.data.title}</h1>
       <p class="text-xl details">
         {entry.data.author} • {formatDate(entry.data.date)}
       </p>
     </div>
   </div>
-  <div class="w-[40%] mx-auto py-4">
+  <div class="w-[80%] md:w-[75%] lg:w-[60%] xl:w-[50%] mx-auto lg:py-4">
     <div class="post-body">
       <Content />
     </div>
-    <footer class="mt-12 text-center">
+    <footer
+      class="mt-12 text-center justify-center max-sm:grid grid-cols-1 min-[480px]:grid-cols-2 sm:flex gap-2"
+    >
       {
         entry.data.tags?.map((tag: string) => (
-          <span class="bg-gray-300 px-4 py-2 rounded-xl mr-4 font-semibold cursor-pointer">
+          <span class="h-max bg-gray-300 px-4 py-2 rounded-xl font-semibold cursor-pointer">
             # {tag}
           </span>
         ))
@@ -132,7 +134,6 @@ function formatDate(date: Date) {
 
   a {
     color: #3182ce;
-    text-decoration: underline;
     font-weight: 500;
   }
 
