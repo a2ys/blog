@@ -80,7 +80,7 @@ const { title } = Astro.props;
   * {
     margin: 0;
     padding: 0;
-    font-family: "Hauora", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   .link {
@@ -101,6 +101,27 @@ const { title } = Astro.props;
   }
 
   .link:hover::after {
+    width: 100%;
+  }
+
+  a.link {
+    position: relative;
+    display: inline-block;
+    color: white;
+  }
+
+  a.link::after {
+    content: "";
+    height: 2px;
+    background-color: white;
+    width: 0;
+    transition: width 0.3s ease;
+    display: block;
+    position: absolute;
+    left: 0;
+  }
+
+  a.link:hover::after {
     width: 100%;
   }
 
