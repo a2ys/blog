@@ -10,7 +10,8 @@ const blogPosts = await getCollection("blog");
     blogPosts.map((post) => (
       <BlogCard
         title={post.data.title}
-        body={post.data.description}
+        author={post.data.author}
+        date={post.data.date}
         image="/test.jpg"
         slug={post.slug}
       />
