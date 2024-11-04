@@ -1,0 +1,20 @@
+---
+const { name, bio, avatar, email, twitter, github, slug } = Astro.props;
+---
+
+<div class="rounded-lg relative flex flex-col items-center text-center">
+  <a href={`/author/${slug}`}>
+    <img
+      class="object-cover w-60 h-auto rounded-lg"
+      src={avatar}
+      alt="Author Image"
+    />
+  </a>
+  <hr class="border-white border-t-1" />
+  <a href={`/author/${slug}`}>
+    <div class="p-4">
+      <h1 class="text-lg sm:text-xl font-bold">{name}</h1>
+      <p class="py-1 text-sm sm:text-md">Click to know more about me!</p>
+    </div>
+  </a>
+</div>
