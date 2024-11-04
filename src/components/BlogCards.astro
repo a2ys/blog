@@ -3,20 +3,30 @@ import { getCollection } from "astro:content";
 import BlogCard from "./BlogCard.astro";
 
 const blogPosts = await getCollection("blog");
+const authors = await getCollection("author");
 ---
 
-<div
-  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6"
->
-  {
-    blogPosts.map((post) => (
-      <BlogCard
-        title={post.data.title}
-        author={post.data.author}
-        date={post.data.date}
-        imageSrc="/dallethumbnail.webp"
-        slug={post.slug}
-      />
-    ))
-  }
+<div class="flex flex-col space-y-4 w-full items-center">
+  <div class="text-3xl mb-4 font-bold">Browse the recent posts</div>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6"
+  >
+    {
+      blogPosts.slice(0, 3).map((post) => {
+        const authorData = authors.find(
+          (author) => author.slug === post.data.author.slug
+        );
+
+        return (
+          <BlogCard
+            title={post.data.title}
+            author={authorData?.data.name || "Unknown Author"}
+            date={post.data.date}
+            imageSrc="/dallethumbnail.webp"
+            slug={post.slug}
+          />
+        );
+      })
+    }
+  </div>
 </div>
