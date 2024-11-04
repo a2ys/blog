@@ -49,8 +49,9 @@ function formatDate(date: Date) {
   <div class="mb-8 py-16 bg-gray-900 text-white">
     <div class="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] mx-auto">
       <h1 class="text-5xl font-black">{entry.data.title}</h1>
-      <p class="text-xl details">
-        <a href={`/author/${entry.data.author.slug}`}>{authorEntry.data.name}</a
+      <p class="text-xl details items-center">
+        <a href={`/author/${entry.data.author.slug}`}>
+          {authorEntry.data.name}</a
         > • {formatDate(entry.data.date)}
       </p>
     </div>

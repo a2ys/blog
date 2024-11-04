@@ -8,15 +8,15 @@ const authors = await getCollection("author");
 ---
 
 <Layout>
-  <div class="p-16 justify-center items-center flex flex-col">
-    <h1 class="text-5xl font-black text-center">All Posts</h1>
-    <p class="text-xl text-center mt-4">
+  <div
+    class="py-16 justify-center items-center flex flex-col w-[90%] xl:w-[75%] mx-auto"
+  >
+    <h1 class="text-4xl sm:text-5xl font-black text-center">All Posts</h1>
+    <p class="text-lg sm:text-xl text-center mt-4">
       A collection of all the posts on this site.
     </p>
     <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-32" />
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6"
-    >
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         blogPosts.map((post) => {
           const authorData = authors.find(
@@ -27,6 +27,7 @@ const authors = await getCollection("author");
             <BlogCard
               title={post.data.title}
               author={authorData?.data.name || "Unknown Author"}
+              authorAvatar={authorData?.data.avatar}
               date={post.data.date}
               imageSrc="/dallethumbnail.webp"
               slug={post.slug}

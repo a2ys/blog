@@ -7,7 +7,7 @@ const authors = await getCollection("author");
 ---
 
 <div class="flex flex-col space-y-4 w-full items-center">
-  <div class="text-3xl mb-4 font-bold">Browse the recent posts</div>
+  <div class="text-2xl sm:text-3xl mb-4 font-bold">Browse recent posts</div>
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6"
   >
@@ -21,6 +21,7 @@ const authors = await getCollection("author");
           <BlogCard
             title={post.data.title}
             author={authorData?.data.name || "Unknown Author"}
+            authorAvatar={authorData?.data.avatar}
             date={post.data.date}
             imageSrc="/dallethumbnail.webp"
             slug={post.slug}
