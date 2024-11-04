@@ -6,7 +6,7 @@ const { title, author, date, imageSrc, slug } = Astro.props;
 <div class="rounded-lg relative inline-block bg-gray-900 text-white">
   <a href={`/blog/${slug}`}>
     <img
-      class="w-full object-cover rounded-t-lg h-48"
+      class="w-full object-cover rounded-t-lg h-auto"
       src={imageSrc}
       alt="Blog Card Image"
     />
@@ -14,7 +14,7 @@ const { title, author, date, imageSrc, slug } = Astro.props;
   <hr class="border-white border-t-1" />
   <a href={`/blog/${slug}`}>
     <div class="p-4">
-      <h1 class="text-lg sm:text-xl font-extrabold">{title}</h1>
+      <h1 class="text-lg sm:text-xl font-bold">{title}</h1>
       <p class="py-1 text-sm sm:text-md">
         {author} • {formatDate(date)}
       </p>
