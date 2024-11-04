@@ -47,7 +47,7 @@ function formatDate(date: Date) {
 
 <Layout>
   <div class="mb-8 py-16 bg-gray-900 text-white">
-    <div class="w-[80%] sm:w-[70%] lg:w-[80%] mx-auto">
+    <div class="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] mx-auto">
       <h1 class="text-5xl font-black">{entry.data.title}</h1>
       <p class="text-xl details">
         <a href={`/author/${entry.data.author.slug}`}>{authorEntry.data.name}</a
@@ -55,7 +55,9 @@ function formatDate(date: Date) {
       </p>
     </div>
   </div>
-  <div class="w-[80%] md:w-[75%] lg:w-[60%] xl:w-[50%] mx-auto lg:py-4">
+  <div
+    class="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] xl:w-[50%] mx-auto lg:py-4"
+  >
     <div class="post-body">
       <Content />
     </div>
@@ -76,6 +78,7 @@ function formatDate(date: Date) {
 <style is:global>
   .post-body {
     margin-top: 2rem;
+    overflow-x: auto;
   }
 
   h1 {
