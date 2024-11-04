@@ -50,13 +50,16 @@ function formatDate(date: Date) {
     <div class="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] mx-auto">
       <h1 class="text-5xl font-black">{entry.data.title}</h1>
       <p class="text-xl details items-center">
-        <a href={`/author/${entry.data.author.slug}`}>
+        <a
+          href={`/author/${entry.data.author.slug}`}
+          class="flex items-center mr-2"
+        >
           <img
             src={authorEntry.data.avatar}
-            class="w-6 h-6 rounded-full inline-block mr-2 justify-center"
+            class="w-6 h-6 rounded-full inline-block mr-3"
           />
           {authorEntry.data.name}</a
-        > • {formatDate(entry.data.date)}
+        >• {formatDate(entry.data.date)}
       </p>
     </div>
   </div>
@@ -209,6 +212,6 @@ function formatDate(date: Date) {
 
   .details {
     font-family: "Roboto Mono", monospace !important;
-    @apply text-lg font-light leading-6 italic;
+    @apply text-lg font-light leading-6 italic flex items-center;
   }
 </style>
