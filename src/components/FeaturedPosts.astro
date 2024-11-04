@@ -24,6 +24,7 @@ const authors = await getCollection("author");
               title={post.data.title}
               author={authorData?.data.name || "Unknown Author"}
               authorAvatar={authorData?.data.avatar}
+              authorProfileLink={`/author/${post.data.author.slug}`}
               date={post.data.date}
               imageSrc="/dallethumbnail.webp"
               slug={post.slug}

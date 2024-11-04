@@ -51,6 +51,10 @@ function formatDate(date: Date) {
       <h1 class="text-5xl font-black">{entry.data.title}</h1>
       <p class="text-xl details items-center">
         <a href={`/author/${entry.data.author.slug}`}>
+          <img
+            src={authorEntry.data.avatar}
+            class="w-6 h-6 rounded-full inline-block mr-2 justify-center"
+          />
           {authorEntry.data.name}</a
         > • {formatDate(entry.data.date)}
       </p>
