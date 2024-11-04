@@ -4,6 +4,7 @@ tags: ["Savant", "Contributing"]
 date: 2024-11-04
 description: A guide on how to contribute to Savant, an open-source community blog platform.
 author: aayush-shukla
+thumbnail: og.png
 featured: true
 ---
 

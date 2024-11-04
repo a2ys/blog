@@ -156,13 +156,7 @@ const { Content } = await entry.render();
               authorAvatar={entry.data.avatar}
               authorProfileLink={`/author/${slug}`}
               date={post.data.date}
-              imageSrc="/dallethumbnail.webp"
-              Replace
-              with
-              post-specific
-              image
-              if
-              available
+              imageSrc={post.data.thumbnail}
               slug={post.slug}
             />
           ))

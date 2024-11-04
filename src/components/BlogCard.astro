@@ -8,7 +8,7 @@ const { title, author, authorAvatar, authorProfileLink, date, imageSrc, slug } =
   <a href={`/blog/${slug}`}>
     <img
       class="w-full object-cover rounded-t-lg h-auto"
-      src={imageSrc}
+      src={imageSrc || "/placeholder.webp"}
       alt="Blog Card Image"
     />
   </a>
