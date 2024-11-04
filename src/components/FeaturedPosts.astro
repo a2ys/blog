@@ -4,17 +4,15 @@ import BlogCard from "./BlogCard.astro";
 
 const blogPosts = await getCollection("blog");
 const authors = await getCollection("author");
+const featuredPosts = blogPosts.filter((post) => post.data.featured);
 ---
 
-<div class="flex flex-col space-y-4 w-full items-center">
-  <div class="text-2xl sm:text-3xl mb-4 font-bold">Featured posts</div>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6"
-  >
-    {
-      blogPosts
-        .filter((post) => post.data.featured)
-        .map((post) => {
+{
+  featuredPosts.length > 0 && (
+    <div class="flex flex-col space-y-4 w-full items-center">
+      <div class="text-2xl sm:text-3xl mb-4 font-bold">Featured posts</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6">
+        {featuredPosts.map((post) => {
           const authorData = authors.find(
             (author) => author.slug === post.data.author.slug
           );
@@ -30,7 +28,8 @@ const authors = await getCollection("author");
               slug={post.slug}
             />
           );
-        })
-    }
-  </div>
-</div>
+        })}
+      </div>
+    </div>
+  )
+}

@@ -1,10 +1,9 @@
 ---
-title: Building RESTful APIs with FastAPI, Better Version
+title: Building RESTful APIs with FastAPI
 tags: ["FastAPI", "Python", "API Development", "Backend"]
 date: 2024-11-03
 description: A beginner’s guide to building RESTful APIs using FastAPI in Python.
 author: aayush-shukla
-featured: true
 ---
 
 ## Building RESTful APIs with FastAPI
