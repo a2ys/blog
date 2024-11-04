@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import AuthorCard from "../../components/AuthorCard.astro";
+
+const authors = await getCollection("author");
+---
+
+<Layout>
+  <div class="p-16 flex flex-col items-center w-full">
+    <h1 class="text-5xl font-black text-center">Authors</h1>
+    <p class="text-xl text-center mt-4">
+      Meet the authors behind the content on this site.
+    </p>
+    <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-32" />
+
+    <div
+      class="flex flex-wrap justify-center gap-12 w-full md:w-[80%] xl:w-[75%]"
+    >
+      {
+        authors.map((author) => (
+          <AuthorCard
+            name={author.data.name}
+            bio={author.data.bio}
+            avatar={author.data.avatar}
+            email={author.data.email}
+            twitter={author.data.twitter}
+            github={author.data.github}
+            slug={author.slug}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Layout>
