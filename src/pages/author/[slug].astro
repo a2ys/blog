@@ -20,14 +20,14 @@ const { Content } = await entry.render();
     class="py-16 flex flex-col items-center text-center w-[90%] sm:w-[75%] md:w-[60%] lg:w-[50%] mx-auto"
   >
     <img
-      class="object-cover w-40 h-auto rounded-lg my-10"
+      class="object-cover w-60 md:w-40 h-auto rounded-lg"
       src={entry.data.avatar}
       alt="Author Image"
     />
-    <h1 class="text-5xl font-black">{entry.data.name}</h1>
-    <p class="text-xl mt-4">{entry.data.bio}</p>
+    <h1 class="text-4xl sm:text-5xl font-black mt-10">{entry.data.name}</h1>
+    <p class="text-lg sm:text-xl mt-4">{entry.data.bio}</p>
     <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-8" />
-    <div class="flex flex-row space-x-8">
+    <div class="flex flex-row space-x-6 sm:space-x-8">
       {
         entry.data.email && (
           <a href={`mailto:${entry.data.email}`} class="details">
