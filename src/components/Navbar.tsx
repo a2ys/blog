@@ -69,10 +69,10 @@ const Navbar = () => {
           <a href="/posts" className="block">
             Posts
           </a>
-          <a href="/authors" className="block mt-2">
+          <a href="/authors" className="block mt-3">
             Authors
           </a>
-          <a href="/about" className="block mt-2">
+          <a href="/about" className="block mt-3">
             About
           </a>
         </div>
