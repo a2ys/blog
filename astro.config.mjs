@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 import vercel from '@astrojs/vercel/serverless';
+import { remarkReadingTime } from './remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,8 @@ export default defineConfig({
     shikiConfig: {
       theme: 'material-theme-ocean',
       defaultColor: false,
-    }
+    },
+    remarkPlugins: [remarkReadingTime]
   },
 
   integrations: [react(), tailwind()],

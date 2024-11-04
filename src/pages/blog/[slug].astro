@@ -17,7 +17,7 @@ if (!authorEntry) {
   throw new Error(`Author not found for reference: ${entry.data.author.slug}`);
 }
 
-const { Content } = await entry.render();
+const { Content, remarkPluginFrontmatter } = await entry.render();
 
 if (!entry) {
   throw new Error(`Post not found for slug: ${slug}`);
@@ -59,7 +59,7 @@ function formatDate(date: Date) {
             class="w-6 h-6 rounded-full inline-block mr-3"
           />
           {authorEntry.data.name}</a
-        >• {formatDate(entry.data.date)}
+        >• {formatDate(entry.data.date)} • {remarkPluginFrontmatter.minutesRead}
       </p>
     </div>
   </div>
