@@ -63,6 +63,62 @@ const { title } = Astro.props;
     width: 100%;
   }
 
+  @media (min-width: 440px) {
+    .foot.link::after {
+      content: "";
+      height: 2px;
+      background-color: white;
+      width: 0;
+      transition: width 0.3s ease;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+    }
+
+    .foot.link:hover::after {
+      width: 100%;
+    }
+
+    .spanfoot.link:hover::after {
+      width: 0%;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .foot.link::after {
+      content: "";
+      height: 2px;
+      background-color: white;
+      width: 0;
+      transition: width 0.3s ease;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+    }
+
+    .foot.link:hover::after {
+      width: 0%;
+    }
+
+    .spanfoot.link::after {
+      content: "";
+      height: 2px;
+      background-color: white;
+      width: 0;
+      transition: width 0.3s ease;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+    }
+
+    .spanfoot.link:hover::after {
+      width: 100%;
+    }
+  }
+
   .text-link {
     @apply border-b-2 border-dotted border-b-black;
   }
