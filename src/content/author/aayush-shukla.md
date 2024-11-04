@@ -1,7 +1,7 @@
 ---
 name: Aayush Shukla
 bio: An open-source developer from India. I love to contribute to open-source projects and write about programming.
-avatar: https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Avery
+avatar: /aayushshukla.jpg
 email: me@a2ys.dev
 github: a2ys
 twitter: unreal_sapien
