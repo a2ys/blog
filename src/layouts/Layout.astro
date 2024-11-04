@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar";
 import "@fontsource-variable/inter";
@@ -8,10 +9,41 @@ const { title } = Astro.props;
 
 <html lang="en">
   <head>
+    <!-- Base Meta Tags -->
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Author Information -->
+    <meta name="author" content="Aayush Shukla" />
+    <meta name="description" content="Savant, a community blog." />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Savant" />
+    <meta property="og:description" content="A community blog" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:image" content="https://blog.a2ys.dev/og.png" />
+    <meta property="og:url" content="https://blog.a2ys.dev" />
+    <meta property="og:site_name" content="Savant - A community blog" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:width" content="7680" />
+    <meta property="og:image:height" content="4320" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@unreal_sapien" />
+    <meta name="twitter:title" content="Savant" />
+    <meta name="twitter:description" content="A community blog" />
+    <meta name="twitter:image" content="https://blog.a2ys.dev/og.png" />
+
+    <!-- Other Meta Tags -->
+    <meta
+      name="keywords"
+      content="Savant, Savant blog, Savant community, Savant collaboration, a2ys, a2ys Savant, knowledge sharing, a2ys blog, tech blog, developer community, open-source articles, contribute to Savant, Savant GitHub, Savant authors, a2ys developer, collaborative blog, tech insights, programming articles, coding tutorials, a2ys projects, Savant platform, a2ys articles, tech contributions, Savant knowledge base, Savant open-source blog, developer knowledge sharing, learn with Savant, a2ys resources, Savant for developers"
+    />
+
+    <!-- Font Imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +54,9 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+
     <title>{title || "Blog"}</title>
+    <ViewTransitions />
   </head>
   <body>
     <Navbar client:load />
