@@ -1,6 +1,7 @@
 ---
+import BlogCard from "../../components/BlogCard.astro";
 import Layout from "../../layouts/Layout.astro";
-import { getEntry } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
 
 const { slug } = Astro.params;
 if (!slug) {
@@ -12,6 +13,8 @@ if (!entry) {
   throw new Error(`Author not found for slug: ${slug}`);
 }
 
+const blogPosts = await getCollection("blog");
+const authorPosts = blogPosts.filter((post) => post.data.author.slug === slug);
 const { Content } = await entry.render();
 ---
 
@@ -138,6 +141,34 @@ const { Content } = await entry.render();
     </div>
     <div class="post-body">
       <Content />
+    </div>
+  </div>
+  <div class="w-[75%] mt-12 mx-auto">
+    <h2 class="text-2xl font-bold mb-4">
+      Recent Posts by {entry.data.name}
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        authorPosts
+          .slice(0, 3)
+          .map((post) => (
+            <BlogCard
+              title={post.data.title}
+              author={entry.data.name}
+              authorAvatar={entry.data.avatar}
+              authorProfileLink={`/author/${slug}`}
+              date={post.data.date}
+              imageSrc="/dallethumbnail.webp"
+              Replace
+              with
+              post-specific
+              image
+              if
+              available
+              slug={post.slug}
+            />
+          ))
+      }
     </div>
   </div>
 </Layout>
