@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+const blogPosts = await getCollection("blog");
+const authors = await getCollection("author");
+---
+
+<div class="flex flex-col space-y-4 w-full items-center">
+  <div class="text-2xl sm:text-3xl mb-4 font-bold">Browse featured posts</div>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[80%] xl:w-[75%] gap-6"
+  >
+    {
+      blogPosts
+        .filter((post) => post.data.featured)
+        .map((post) => {
+          const authorData = authors.find(
+            (author) => author.slug === post.data.author.slug
+          );
+
+          return (
+            <BlogCard
+              title={post.data.title}
+              author={authorData?.data.name || "Unknown Author"}
+              authorAvatar={authorData?.data.avatar}
+              date={post.data.date}
+              imageSrc="/dallethumbnail.webp"
+              slug={post.slug}
+            />
+          );
+        })
+    }
+  </div>
+</div>

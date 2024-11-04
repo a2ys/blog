@@ -4,6 +4,7 @@ tags: ["test", "markdown"]
 date: 2021-01-01
 description: Post on recursion.
 author: aayush-shukla
+featured: true
 ---
 
 In the world of computational mathematics, there exists a fascinating technique that dances on the edge of complexity and elegance — recursion. In this comprehensive guide, we'll unravel the mysteries of recursion, exploring its fundamentals, advantages, challenges, types, real-world applications, and best practices.
