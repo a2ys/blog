@@ -12,6 +12,11 @@ if (!entry) {
   throw new Error(`Post not found for slug: ${slug}`);
 }
 
+const authorEntry = await getEntry("author", entry.data.author.slug);
+if (!authorEntry) {
+  throw new Error(`Author not found for reference: ${entry.data.author.slug}`);
+}
+
 const { Content } = await entry.render();
 
 if (!entry) {
@@ -43,9 +48,10 @@ function formatDate(date: Date) {
 <Layout>
   <div class="mb-8 py-16 bg-gray-900 text-white">
     <div class="w-[80%] sm:w-[70%] lg:w-[80%] mx-auto">
-      <h1 class="text-5xl font-extrabold">{entry.data.title}</h1>
+      <h1 class="text-5xl font-black">{entry.data.title}</h1>
       <p class="text-xl details">
-        {entry.data.author} • {formatDate(entry.data.date)}
+        <a href={`/author/${entry.data.author.slug}`}>{authorEntry.data.name}</a
+        > • {formatDate(entry.data.date)}
       </p>
     </div>
   </div>
@@ -186,7 +192,7 @@ function formatDate(date: Date) {
     font-size: 1.1rem;
   }
 
-  .navbar a {
+  .navbar .blog-headers {
     text-decoration: none;
     color: white;
     font-weight: 700;
