@@ -30,7 +30,7 @@ const { Content } = await entry.render();
     <div class="flex flex-row space-x-6 sm:space-x-8">
       {
         entry.data.email && (
-          <a href={`mailto:${entry.data.email}`} class="details">
+          <a href={`mailto:${entry.data.email}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -51,7 +51,7 @@ const { Content } = await entry.render();
       }
       {
         entry.data.twitter && (
-          <a href={`https://x.com/${entry.data.twitter}`} class="details">
+          <a href={`https://x.com/${entry.data.twitter}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -71,7 +71,7 @@ const { Content } = await entry.render();
       }
       {
         entry.data.github && (
-          <a href={`https://github.com/${entry.data.github}`} class="details">
+          <a href={`https://github.com/${entry.data.github}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -91,10 +91,7 @@ const { Content } = await entry.render();
       }
       {
         entry.data.linkedin && (
-          <a
-            href={`https://linkedin.com/in/${entry.data.linkedin}`}
-            class="details"
-          >
+          <a href={`https://linkedin.com/in/${entry.data.linkedin}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -116,7 +113,7 @@ const { Content } = await entry.render();
       }
       {
         entry.data.website && (
-          <a href={entry.data.website} class="details">
+          <a href={entry.data.website}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
