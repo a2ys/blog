@@ -18,7 +18,7 @@ const authorPosts = blogPosts.filter((post) => post.data.author.slug === slug);
 const { Content } = await entry.render();
 ---
 
-<Layout>
+<Layout title={`${entry.data.name}, Author • Savant`}>
   <div
     class="py-16 flex flex-col items-center text-center w-[90%] sm:w-[75%] md:w-[60%] lg:w-[50%] mx-auto"
   >
@@ -129,11 +129,9 @@ const { Content } = await entry.render();
               stroke-linejoin="round"
               class="feather feather-globe"
             >
-              <>
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </>
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>
           </a>
         )
