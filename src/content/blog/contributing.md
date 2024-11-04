@@ -3,8 +3,8 @@ title: Contributing to Savant
 tags: ["Savant", "Contributing"]
 date: 2024-11-04
 description: A guide on how to contribute to Savant, an open-source community blog platform.
-author: aayush-shukla
-thumbnail: og.png
+author: a2ys
+thumbnail: /og.png
 featured: true
 ---
 
@@ -46,6 +46,7 @@ To contribute to Savant, follow these steps:
   - Add a new blog post to the `src/content/blog` directory. You can use an existing post as a template. You can learn markdown syntax [here](https://www.markdownguide.org/).
   - Then add your information with the file name the same as your `author` property set in the blog post in the `src/content/author` directory. You can take help from the existing files.
   - Also, don't forget to add your avatar image in the `public/` directory. You can use the existing images as a reference. You can add any image as your avatar, but make sure it's square and not too large.
+  - If you want to add a thumbnail image for your blog post, add it to the `public/` directory and use the file name in the `thumbnail` property of your blog post. It is optional but recommended.
 
   For example, if your author property is `aayush-shukla`, then create a file named `aayush-shukla.md` in the `src/content/author` directory.
 
@@ -57,6 +58,7 @@ To contribute to Savant, follow these steps:
     tags: ["Your", "Tags"]
     date: 2024-11-03
     description: Your post description
+    thumbnail: /{your-thumbnail-image-name} (optional)
     author: your-name
     ---
 
@@ -105,7 +107,7 @@ To contribute to Savant, follow these steps:
 Here are some additional tips to help you contribute to Savant effectively.
 
 - Be respectful and considerate of others.
-- Follow the [Code of Conduct](https://github.com/a2ys/blog/CODE_OF_CONDUCT.md) and community guidelines.
+- Follow the [Code of Conduct](https://github.com/a2ys/blog/blob/master/CODE_OF_CONDUCT.md) and community guidelines.
 - Ask questions if you’re unsure about something.
 - Test your changes locally before submitting a pull request.
 - Write clear commit messages and pull request descriptions.

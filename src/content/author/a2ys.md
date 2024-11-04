@@ -1,6 +1,6 @@
 ---
 name: Aayush Shukla
-bio: An open-source developer from India. I love to contribute to open-source projects and write about programming. I'm also known as a2ys. 👀
+bio: An open-source developer from India. I love to contribute to open-source projects and write about programming. I'm also known as a2ys.
 avatar: /aayushshukla.jpg
 email: me@a2ys.dev
 github: a2ys
