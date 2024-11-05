@@ -4,7 +4,7 @@ tags: ["Savant", "Contributing"]
 date: 2024-11-04
 description: A guide on how to contribute to Savant, an open-source community blog platform.
 author: a2ys
-thumbnail: /og.png
+thumbnail: /og.webp
 featured: true
 ---
 
@@ -47,6 +47,8 @@ To contribute to Savant, follow these steps:
   - Then add your information with the file name the same as your `author` property set in the blog post in the `src/content/author` directory. You can take help from the existing files.
   - Also, don't forget to add your avatar image in the `public/` directory. You can use the existing images as a reference. You can add any image as your avatar, but make sure it's square and not too large.
   - If you want to add a thumbnail image for your blog post, add it to the `public/` directory and use the file name in the `thumbnail` property of your blog post. It is optional but recommended.
+  - Also, you can add your social media links like GitHub, Twitter, LinkedIn, etc., in your author file. It is optional but recommended.
+  - An additional request is to add your images in the webp format. You can use online tools like [Squoosh](https://squoosh.app/) to convert your images to webp format. It will help improve the performance of the website.
 
   For example, if your author property is `aayush-shukla`, then create a file named `aayush-shukla.md` in the `src/content/author` directory.
 
