@@ -26,9 +26,9 @@ To contribute to Savant, follow these steps:
 - Clone your forked repository to your local machine.
 - Install the project dependencies using npm.
 
-    ```bash
-    npm install
-    ```
+  ```bash
+  npm install
+  ```
 
 - Create a new branch for your changes.
 - Make your changes as mentioned below.
@@ -42,49 +42,49 @@ To contribute to Savant, follow these steps:
 
   Here, see this:
 
-    ```markdown
-    ---
-    title: Some title
-    tags: ["Your", "Tags"]
-    date: 2024-11-03
-    description: Your post description
-    thumbnail: /{your-thumbnail-image-name} (optional)
-    author: your-name
-    ---
+  ```markdown
+  ---
+  title: Some title
+  tags: ["Your", "Tags"]
+  date: 2024-11-03
+  description: Your post description
+  thumbnail: /{your-thumbnail-image-name} (optional)
+  author: your-name
+  ---
 
-    Your post content goes here.
-    ```
+  Your post content goes here.
+  ```
 
-    Then in the `src/content/author` directory, create a file named `your-name.md` and add your information like this:
+  Then in the `src/content/author` directory, create a file named `your-name.md` and add your information like this:
 
-    ```markdown
-    ---
-    name: Your Name
-    bio: Your bio
-    avatar: /{your-image-name}
-    email: your-email (optional)
-    github: your-github (optional)
-    twitter: your-twitter (optional)
-    linkedin: your-linkedin (optional)
-    website: your-website (optional)
-    ---
-    ```
+  ```markdown
+  ---
+  name: Your Name
+  bio: Your bio
+  avatar: /{your-image-name}
+  email: your-email (optional)
+  github: your-github (optional)
+  twitter: your-twitter (optional)
+  linkedin: your-linkedin (optional)
+  website: your-website (optional)
+  ---
+  ```
 
-    Don't forget to add your image in the `public/` directory.
+  Don't forget to add your image in the `public/` directory.
 
 - Test your changes locally.
 
-    ```bash
-    npm run dev
-    ```
+  ```bash
+  npm run dev
+  ```
 
 - Commit your changes and push them to your fork.
 
-    ```bash
-    git add .
-    git commit -m "Add a new blog post"
-    git push origin your-branch-name
-    ```
+  ```bash
+  git add .
+  git commit -m "Add a new blog post"
+  git push origin your-branch-name
+  ```
 
 - Create a pull request on GitHub.
 - Wait for the maintainers to review your pull request.
