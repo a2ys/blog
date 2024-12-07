@@ -11,7 +11,7 @@ const Navbar = () => {
         </a>{" "}
         <span className="px-1 font-bold">/</span> <a href="/">Savant</a>
       </div>
-      <div className="space-x-6 max-[440px]:hidden">
+      <div className="space-x-6 max-[640px]:hidden">
         <a href="/posts" className="link text-xl">
           Posts
         </a>
@@ -26,7 +26,7 @@ const Navbar = () => {
         </a>
       </div>
       <button
-        className="min-[440px]:hidden"
+        className="min-[640px]:hidden"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         {isMenuOpen ? (
