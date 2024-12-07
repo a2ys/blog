@@ -14,7 +14,7 @@ import rehypeKatex from "rehype-katex";
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      theme: "material-theme-ocean",
+      theme: "tokyo-night",
       defaultColor: false,
     },
     remarkPlugins: [remarkReadingTime, remarkMath],
