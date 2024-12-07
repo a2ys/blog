@@ -133,6 +133,15 @@ function formatDate(date: Date) {
     margin: 1rem 0;
   }
 
+  p>code, li>code {
+    background: #dddddd;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
   pre {
     border-radius: 0.5rem;
     padding: 1rem;
@@ -142,6 +151,10 @@ function formatDate(date: Date) {
   code {
     overflow-x: auto;
     font-family: "Roboto Mono", monospace !important;
+  }
+
+  li>pre>code>span.line>span {
+    font-size: 1rem;
   }
 
   img {
