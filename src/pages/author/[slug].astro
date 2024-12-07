@@ -14,7 +14,9 @@ if (!entry) {
 }
 
 const blogPosts = await getCollection("blog");
-const authorPosts = blogPosts.filter((post) => post.data.author.slug === slug);
+const authorPosts = blogPosts.filter((post) => post.data.author.slug === slug).sort(
+  (a, b) => new Date(b.data.date) - new Date(a.data.date)
+);
 const { Content } = await entry.render();
 ---
 

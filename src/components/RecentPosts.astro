@@ -2,7 +2,9 @@
 import { getCollection } from "astro:content";
 import BlogCard from "./BlogCard.astro";
 
-const blogPosts = await getCollection("blog");
+const blogPosts = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.date) - new Date(a.data.date)
+);
 const authors = await getCollection("author");
 ---
 

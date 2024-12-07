@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard.astro";
 
 const blogPosts = await getCollection("blog");
 const authors = await getCollection("author");
-const featuredPosts = blogPosts.filter((post) => post.data.featured);
+const featuredPosts = blogPosts.filter((post) => post.data.featured).sort((a, b) => new Date(b.data.date) - new Date(a.data.date)); ;
 ---
 
 {
