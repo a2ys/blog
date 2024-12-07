@@ -3,13 +3,11 @@ import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import BlogCard from "../../components/BlogCard.astro";
 
-const blogPosts = (await getCollection("blog")).sort(
-  (a, b) => {
-    const dateA = new Date(a.data.date).getTime() || 0;
-    const dateB = new Date(b.data.date).getTime() || 0;
-    return dateB - dateA;
-  }
-);
+const blogPosts = (await getCollection("blog")).sort((a, b) => {
+  const dateA = new Date(a.data.date).getTime() || 0;
+  const dateB = new Date(b.data.date).getTime() || 0;
+  return dateB - dateA;
+});
 const authors = await getCollection("author");
 ---
 
