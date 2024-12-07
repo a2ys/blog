@@ -48,8 +48,8 @@ function formatDate(date: Date) {
 <Layout title={`${entry.data.title} • Savant`}>
   <div class="mb-8 py-16 bg-gray-900 text-white">
     <div class="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] mx-auto">
-      <h1 class="text-5xl font-black">{entry.data.title}</h1>
-      <p class="flex flex-wrap text-xl details items-center">
+      <h1 class="text-5xl max-[371px]:text-3xl font-black">{entry.data.title}</h1>
+      <p class="flex flex-wrap text-lg font-light leading-6 italic max-[371px]:text-sm sm:text-md details items-center">
         <a
           href={`/author/${entry.data.author.slug}`}
           class="flex items-center mr-2 monospace-font"
@@ -89,7 +89,9 @@ function formatDate(date: Date) {
 <style is:global>
   .post-body {
     margin-top: 2rem;
-    overflow-x: auto;
+    overflow-x: auto;word-wrap: break-word; /* Wrap long words properly */
+    overflow-wrap: break-word; /* Ensure words break appropriately */
+    white-space: normal; /* Preserve formatting and wrap text */
   }
 
   h1 {
@@ -228,7 +230,6 @@ function formatDate(date: Date) {
 
   .details {
     font-family: "Roboto Mono", monospace !important;
-    @apply text-lg font-light leading-6 italic flex items-center;
   }
 
   .monospace-font {
@@ -238,4 +239,16 @@ function formatDate(date: Date) {
   .post-body a {
     @apply border-b-2 border-dotted border-b-black;
   }
+
+  span.katex-display {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+span.katex-display::-webkit-scrollbar {
+    display: none;
+}
+
 </style>
