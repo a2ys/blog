@@ -19,7 +19,7 @@ const { title, author, authorAvatar, authorProfileLink, date, imageSrc, slug } =
       <p class="py-1 text-sm sm:text-md">
         <a href={authorProfileLink}>
           <img
-            src={authorAvatar}
+            src={`/authors/${authorAvatar}`}
             alt="Author Avatar"
             class="w-4 h-4 inline-block rounded-full mr-1"
           />
@@ -29,3 +29,9 @@ const { title, author, authorAvatar, authorProfileLink, date, imageSrc, slug } =
     </div>
   </a>
 </div>
+
+<style>
+  a {
+    cursor: url("/read.svg"), pointer;
+  }
+</style>

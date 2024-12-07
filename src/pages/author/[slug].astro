@@ -14,13 +14,13 @@ if (!entry) {
 }
 
 const blogPosts = await getCollection("blog");
-const authorPosts = blogPosts.filter((post) => post.data.author.slug === slug).sort(
-  (a, b) => {
+const authorPosts = blogPosts
+  .filter((post) => post.data.author.slug === slug)
+  .sort((a, b) => {
     const dateA = new Date(a.data.date).getTime() || 0;
     const dateB = new Date(b.data.date).getTime() || 0;
     return dateB - dateA;
-  }
-);
+  });
 const { Content } = await entry.render();
 ---
 
@@ -30,7 +30,7 @@ const { Content } = await entry.render();
   >
     <img
       class="object-cover w-60 md:w-40 h-auto rounded-lg"
-      src={entry.data.avatar}
+      src={`/authors/${entry.data.avatar}`}
       alt="Author Image"
     />
     <h1 class="text-4xl sm:text-5xl font-black mt-10">{entry.data.name}</h1>
