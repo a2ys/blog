@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  throw new Error("Slug is missing.");
+}
+
+const blogPosts = await getCollection("blog");
+const authors = await getCollection("author");
+
+const filteredPosts = blogPosts
+  .filter((post) => post.data.tags && post.data.tags.includes(slug))
+  .sort((a, b) => {
+    const dateA = new Date(a.data.date).getTime() || 0;
+    const dateB = new Date(b.data.date).getTime() || 0;
+    return dateB - dateA;
+  });
+---
+
+<Layout>
+  <div
+    class="py-16 justify-center items-center flex flex-col w-[80%] xl:w-[75%] mx-auto"
+  >
+    <h1 class="text-4xl sm:text-5xl font-black text-center">
+      Tag "{slug}"
+    </h1>
+    <p class="text-lg sm:text-xl text-center mt-4">
+      View the posts tagged with "{slug}".
+    </p>
+    <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-32" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        filteredPosts.map((post) => {
+          const authorData = authors.find(
+            (author) => author.slug === post.data.author.slug
+          );
+
+          return (
+            <BlogCard
+              title={post.data.title}
+              author={authorData?.data.name || "Unknown Author"}
+              authorAvatar={authorData?.data.avatar}
+              authorProfileLink={`/author/${post.data.author.slug}`}
+              date={post.data.date}
+              imageSrc={post.data.thumbnail}
+              slug={post.slug}
+            />
+          );
+        })
+      }
+    </div>
+
+    {filteredPosts.length > 0 ? <ul /> : <p>No posts found with this tag.</p>}
+  </div>
+</Layout>
