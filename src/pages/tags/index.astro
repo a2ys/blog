@@ -5,11 +5,15 @@ import Tag from "../../components/Tag.astro";
 
 const blogPosts = await getCollection("blog");
 
-const tagCount = {};
+interface TagCount {
+  [key: string]: number;
+}
+
+const tagCount: TagCount = {};
 
 blogPosts.forEach((post) => {
   if (post.data.tags) {
-    post.data.tags.forEach((tag) => {
+    post.data.tags.forEach((tag: string) => {
       if (tagCount[tag]) {
         tagCount[tag] += 1;
       } else {
