@@ -11,7 +11,10 @@ const blogPosts = (await getCollection("blog")).sort((a, b) => {
 const authors = await getCollection("author");
 ---
 
-<Layout title="Posts • Savant">
+<Layout
+  title="Posts • Savant"
+  description="A collection of all the posts on Savant."
+>
   <div
     class="py-16 justify-center items-center flex flex-col w-[80%] xl:w-[75%] mx-auto"
   >

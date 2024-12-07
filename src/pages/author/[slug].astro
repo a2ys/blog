@@ -27,6 +27,7 @@ const { Content } = await entry.render();
 <Layout
   title={`${entry.data.name}, Author • Savant`}
   ogimage={`$/authors/${entry.data.avatar}`}
+  description={entry.data.bio}
 >
   <div
     class="py-16 flex flex-col items-center text-center w-[90%] sm:w-[75%] md:w-[60%] lg:w-[50%] mx-auto"

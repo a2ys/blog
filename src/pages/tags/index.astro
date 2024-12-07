@@ -28,14 +28,12 @@ const sortedTags = Object.entries(tagCount)
   .map(([tag]) => tag);
 ---
 
-<Layout title="Tags • Savant">
+<Layout title="Tags • Savant" description="All the tags on Savant.">
   <div
     class="py-16 justify-center items-center flex flex-col w-[80%] xl:w-[75%] mx-auto"
   >
     <h1 class="text-4xl sm:text-5xl font-black text-center">All Tags</h1>
-    <p class="text-lg sm:text-xl text-center mt-4">
-      View all the tags on Savant.
-    </p>
+    <p class="text-lg sm:text-xl text-center mt-4">All the tags on Savant.</p>
     <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-32" />
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {sortedTags.map((tag: string) => <Tag name={tag} />)}

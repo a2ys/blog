@@ -21,7 +21,10 @@ const filteredPosts = blogPosts
   });
 ---
 
-<Layout title={`Tag - ${slug} • Savant`}>
+<Layout
+  title={`Tag - ${slug} • Savant`}
+  description={`View the posts tagged with "${slug}".`}
+>
   <div
     class="py-16 justify-center items-center flex flex-col w-[80%] xl:w-[75%] mx-auto"
   >

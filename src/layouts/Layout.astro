@@ -3,7 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar";
 
-const { title, ogimage } = Astro.props;
+const { title, ogimage, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,8 +19,11 @@ const { title, ogimage } = Astro.props;
     <meta name="description" content="Savant, a community blog." />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Savant" />
-    <meta property="og:description" content="A community blog" />
+    <meta property="og:title" content={title || "Savant"} />
+    <meta
+      property="og:description"
+      content={description || "A community blog"}
+    />
     <meta property="og:type" content="blog" />
     <meta
       property="og:image"
