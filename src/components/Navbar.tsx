@@ -15,6 +15,9 @@ const Navbar = () => {
         <a href="/posts" className="link text-xl">
           Posts
         </a>
+        <a href="/tags" className="link text-xl">
+          Tags
+        </a>
         <a href="/authors" className="link text-xl">
           Authors
         </a>
@@ -68,6 +71,9 @@ const Navbar = () => {
         >
           <a href="/posts" className="block">
             Posts
+          </a>
+          <a href="/tags" className="block mt-3">
+            Tags
           </a>
           <a href="/authors" className="block mt-3">
             Authors
