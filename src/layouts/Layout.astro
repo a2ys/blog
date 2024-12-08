@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar";
+import Posthog from "../components/PostHog.astro";
 
 const { title, ogimage, description } = Astro.props;
 ---
@@ -66,6 +67,7 @@ const { title, ogimage, description } = Astro.props;
 
     <title>{title || "Blog"}</title>
     <ViewTransitions />
+    <Posthog />
   </head>
   <body>
     <Navbar client:load />
