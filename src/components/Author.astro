@@ -1,25 +1,25 @@
 ---
-const { slug, avatar, name, date, minutesRead } = Astro.props;
+import { formatDate } from "../utils/dateFormat";
 
-function formatDate(date: Date) {
-  const d = new Date(date);
-  return `${d.toLocaleString("default", { month: "short" })} ${d.getDate()}, ${d.getFullYear()}`;
-}
+const { slug, avatar, name, date, minutesRead } = Astro.props;
 ---
 
-<p class="flex items-center font-light leading-6">
+<p class="flex items-center font-light leading-6 mt-4">
   <a href={`/author/${slug}`} class="flex items-center mr-3">
     <img
       src={`/authors/${avatar}`}
       alt={`${name}'s avatar`}
-      class="w-10 h-10 rounded-full"
+      class="w-10 h-10 max-[371px]:w-8 max-[371px]:h-8 rounded-full"
     />
   </a>
-  <span class="flex flex-col justify-center ml-1">
-    <a href={`/author/${slug}`} class="text-2xl font-bold max-[371px]:text-lg">
+  <span class="flex flex-col justify-center ml-0.5">
+    <a
+      href={`/author/${slug}`}
+      class="text-2xl font-bold max-[371px]:text-md max-sm:text-lg"
+    >
       {name}
     </a>
-    <span class="text-sm italic monospace-font max-[371px]:text-xs">
+    <span class="text-sm italic monospace-font max-sm:text-xs">
       {minutesRead} • {formatDate(date)}
     </span>
   </span>
