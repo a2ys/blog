@@ -1,4 +1,5 @@
 ---
+import Author from "../../components/Author.astro";
 import Tag from "../../components/Tag.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getEntry } from "astro:content";
@@ -23,27 +24,6 @@ const { Content, remarkPluginFrontmatter } = await entry.render();
 if (!entry) {
   throw new Error(`Post not found for slug: ${slug}`);
 }
-
-function getOrdinalSuffix(day: number) {
-  if (day > 3 && day < 21) return "th";
-  switch (day % 10) {
-    case 1:
-      return "st";
-    case 2:
-      return "nd";
-    case 3:
-      return "rd";
-    default:
-      return "th";
-  }
-}
-
-function formatDate(date: Date) {
-  const d = new Date(date);
-  const day = d.getDate();
-  const dayWithSuffix = day + getOrdinalSuffix(day);
-  return `${dayWithSuffix} ${d.toLocaleString("default", { month: "long" })}, ${d.getFullYear()}`;
-}
 ---
 
 <Layout
@@ -56,23 +36,13 @@ function formatDate(date: Date) {
       <h1 class="text-5xl max-[371px]:text-3xl font-black">
         {entry.data.title}
       </h1>
-      <p
-        class="flex flex-wrap text-lg font-light leading-6 italic max-sm:text-sm details items-center"
-      >
-        <a
-          href={`/author/${entry.data.author.slug}`}
-          class="flex items-center mr-2 monospace-font"
-        >
-          <img
-            src={`/authors/${authorEntry.data.avatar}`}
-            class="w-6 h-6 rounded-full inline-block mr-3"
-          />
-          {authorEntry.data.name}</a
-        ><span class="mr-2 monospace-font">• {formatDate(entry.data.date)}</span
-        ><span class="monospace-font"
-          >• {remarkPluginFrontmatter.minutesRead}</span
-        >
-      </p>
+      <Author
+        slug={entry.data.author.slug}
+        avatar={authorEntry.data.avatar}
+        name={authorEntry.data.name}
+        date={entry.data.date}
+        minutesRead={remarkPluginFrontmatter.minutesRead}
+      />
     </div>
   </div>
   <div
@@ -235,10 +205,6 @@ function formatDate(date: Date) {
     color: white;
     font-weight: 700;
     @apply text-xl md:text-2xl;
-  }
-
-  .details {
-    font-family: "Roboto Mono", monospace !important;
   }
 
   .monospace-font {
