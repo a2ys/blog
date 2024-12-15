@@ -116,7 +116,7 @@ if (!entry) {
   p > code,
   li > code {
     background: #dddddd;
-    padding: 0.2rem 0.4rem;
+    padding: 0.1rem 0.4rem;
     border-radius: 0.3rem;
     font-size: 1rem;
     font-weight: 500;
@@ -141,7 +141,7 @@ if (!entry) {
   img {
     max-width: 100%;
     margin: 1rem 0;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
   }
 
   blockquote {
@@ -179,19 +179,22 @@ if (!entry) {
 
   table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     margin: 2rem 0;
-    border: 1.5px solid;
+    border: 0.1rem solid;
     font-size: 1.1rem;
-    padding: 2rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-spacing: 0;
   }
 
   th {
     text-align: left;
     padding: 0.5rem 1rem;
     border-bottom: 1.5px solid;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.1rem;
+    background-color: #dddddd;
   }
 
   td {
