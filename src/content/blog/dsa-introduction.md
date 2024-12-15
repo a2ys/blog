@@ -5,7 +5,6 @@ date: 2024-12-06
 description: An introduction to Data Structures and Algorithms.
 author: a2ys
 thumbnail: /thumbnails/dsa-intro.webp
-featured: true
 ---
 
 ## Introduction to the series

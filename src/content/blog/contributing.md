@@ -44,8 +44,8 @@ To contribute to Savant, follow these steps:
 
   - Add a new blog post to the `src/content/blog` directory. You can use an existing post as a template. You can learn markdown syntax [here](https://www.markdownguide.org/).
   - Then add your information with the file name the same as your `author` property set in the blog post in the `src/content/author` directory. You can take help from the existing files.
-  - Also, don't forget to add your avatar image in the `public/` directory. You can use the existing images as a reference. You can add any image as your avatar, but make sure it's square and not too large.
-  - If you want to add a thumbnail image for your blog post, add it to the `public/` directory and use the file name in the `thumbnail` property of your blog post. It is optional but recommended.
+  - Also, don't forget to add your avatar image in the `public/authors/` directory. You can use the existing images as a reference. You can add any image as your avatar, but make sure it's square and not too large.
+  - If you want to add a thumbnail image for your blog post, add it to the `public/thumbnails/` directory and use the file name in the `thumbnail` property of your blog post. It is optional but recommended.
   - Also, you can add your social media links like GitHub, Twitter, LinkedIn, etc., in your author file. It is optional but recommended.
   - An additional request is to add your images in the webp format. You can use online tools like [Squoosh](https://squoosh.app/) to convert your images to webp format. It will help improve the performance of the website.
 
@@ -59,7 +59,7 @@ To contribute to Savant, follow these steps:
   tags: ["Your", "Tags"]
   date: 2024-11-03
   description: Your post description
-  thumbnail: /{your-thumbnail-image-name} (optional)
+  thumbnail: /{your-thumbnail-image-name} (optional, add only the file name, not the full path)
   author: your-name
   ---
 
@@ -72,7 +72,7 @@ To contribute to Savant, follow these steps:
   ---
   name: Your Name
   bio: Your bio
-  avatar: /{your-image-name}
+  avatar: /{your-image-name} (add only the file name, not the full path)
   email: your-email (optional)
   github: your-github (optional)
   twitter: your-twitter (optional)
@@ -81,7 +81,7 @@ To contribute to Savant, follow these steps:
   ---
   ```
 
-  Don't forget to add your image in the `public/` directory.
+  Don't forget to add your image in the `public/authors/` directory.
 
 - Test your changes locally.
 
