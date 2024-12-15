@@ -3,6 +3,7 @@ import FeaturedPosts from "../components/FeaturedPosts.astro";
 import Hero from "../components/Hero.astro";
 import RecentPosts from "../components/RecentPosts.astro";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Savant">
@@ -10,5 +11,6 @@ import Layout from "../layouts/Layout.astro";
   <div class="flex flex-col space-y-8 items-center w-full justify-center">
     <FeaturedPosts />
     <RecentPosts />
+    <Button text="View all posts" />
   </div>
 </Layout>
