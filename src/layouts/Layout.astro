@@ -69,14 +69,12 @@ const { title, ogimage, description } = Astro.props;
     <ViewTransitions />
     <Posthog />
   </head>
-  <body>
+  <body class="min-h-[100vh] flex flex-col">
     <Navbar client:load />
-    <section class="flex flex-col min-h-[95vh]">
-      <div class="h-full flex-grow">
-        <slot />
-      </div>
-      <Footer />
-    </section>
+    <div class="flex-grow">
+      <slot />
+    </div>
+    <Footer />
   </body>
 </html>
 
