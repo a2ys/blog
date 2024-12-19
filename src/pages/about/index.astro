@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
 ---
 
 <Layout title="About • Savant" description="Hear the story behind Savant.">
@@ -33,5 +34,10 @@ import Layout from "../../layouts/Layout.astro";
       >, and will accept any changes if required. You can contribute to any
       article you want, or write a completely new article for the blog.
     </p><p class="text-lg mt-4">More features will be added to the blog!</p>
+    <Button
+      href="https://github.com/a2ys/blog"
+      newStyle="mt-8"
+      text="View the Source Code on GitHub"
+    />
   </div>
 </Layout>
