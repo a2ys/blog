@@ -25,23 +25,25 @@ const authors = await getCollection("author");
     <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-32" />
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        blogPosts.map((post) => {
-          const authorData = authors.find(
-            (author) => author.slug === post.data.author.slug
-          );
+        blogPosts
+          .filter((post) => !post.data.draft)
+          .map((post) => {
+            const authorData = authors.find(
+              (author) => author.slug === post.data.author.slug
+            );
 
-          return (
-            <BlogCard
-              title={post.data.title}
-              author={authorData?.data.name || "Unknown Author"}
-              authorAvatar={authorData?.data.avatar}
-              authorProfileLink={`/author/${post.data.author.slug}`}
-              date={post.data.date}
-              imageSrc={post.data.thumbnail}
-              slug={post.slug}
-            />
-          );
-        })
+            return (
+              <BlogCard
+                title={post.data.title}
+                author={authorData?.data.name || "Unknown Author"}
+                authorAvatar={authorData?.data.avatar}
+                authorProfileLink={`/author/${post.data.author.slug}`}
+                date={post.data.date}
+                imageSrc={post.data.thumbnail}
+                slug={post.slug}
+              />
+            );
+          })
       }
     </div>
   </div>

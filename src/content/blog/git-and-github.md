@@ -5,7 +5,7 @@ date: 2024-12-15
 description: A comprehensive guide to contributing to GitHub repositories, covering cloning, forking, pull requests, and essential Git commands.
 author: a2ys
 thumbnail: /thumbnails/contributing-to-github-repositories.png
-featured: true
+draft: true
 ---
 
 Contributing to a GitHub repository requires an understanding of Git and collaborative workflows. This guide covers cloning, forking, pull requests, and essential Git commands, along with a list of resources if you need more help. Most of the time, cloning, forking, pull requests and basic Git commands are enough to get you going, but it's always good to have a list of resources to refer to when you need help. Let's dive in!
