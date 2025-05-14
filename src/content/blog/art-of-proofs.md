@@ -1,19 +1,18 @@
 ---
 title: "The Art of Proofs – Thinking Like a Mathematician (Logic & Intuition)"
-# tags:
-#   [
-#     "Mathematics",
-#     "Logic",
-#     "Proofs",
-#     "Mathematical Thinking",
-#     "Formal Reasoning",
-#   ]
-date: 2024-03-22
+tags:
+  [
+    "Mathematics",
+    "Logic",
+    "Proofs",
+    "Mathematical Thinking",
+    "Formal Reasoning",
+  ]
+date: 2025-03-22
 description: An exploration of mathematical proof techniques, combining logical rigor with intuitive understanding to solve complex problems.
 author: a2ys
 thumbnail: /thumbnails/art-of-proofs.png
-draft: false
-featured: true
+featured: false
 ---
 
 ## The Symphony of Symbols: Understanding Formal Languages
