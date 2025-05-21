@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="relative py-4 px-8 sm:px-12 md:px-16 lg:py-4 lg:px-24 xl:py-6 xl:px-48 text-white text-lg sm:text-xl md:text-2xl navbar bg-gray-900 border-b border-b-white flex justify-between items-center">
+    <div className="relative py-4 px-8 sm:px-16 mt-0 bg-white text-gray-900 dark:bg-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 flex justify-between items-center text-lg sm:text-xl md:text-2xl">
       <div className="blog-headers font-bold">
         <a href="https://a2ys.dev" className="link">
           a2ys
@@ -12,16 +12,34 @@ const Navbar = () => {
         <span className="px-1 font-bold">/</span> <a href="/">Savant</a>
       </div>
       <div className="space-x-6 max-[640px]:hidden">
-        <a href="/posts" className="link text-xl">
+        <a
+          href="/posts"
+          className="link text-xl transition-colors duration-200 ease-in-out;"
+        >
           Posts
         </a>
-        <a href="/tags" className="link text-xl">
-          Tags
+        <a
+          href="/series"
+          className="link text-xl transition-colors duration-200 ease-in-out;"
+        >
+          Series
         </a>
-        <a href="/authors" className="link text-xl">
+        <a
+          href="/authors"
+          className="link text-xl transition-colors duration-200 ease-in-out;"
+        >
           Authors
         </a>
-        <a href="/about" className="link text-xl">
+        <a
+          href="/tags"
+          className="link text-xl transition-colors duration-200 ease-in-out;"
+        >
+          Tags
+        </a>
+        <a
+          href="/about"
+          className="link text-xl transition-colors duration-200 ease-in-out;"
+        >
           About
         </a>
       </div>
@@ -66,19 +84,35 @@ const Navbar = () => {
       </button>
 
       {isMenuOpen && (
-        <div
-          className={`absolute top-full left-0 right-0 border-b border-b-white bg-gray-900 text-white p-4 dropdown ${isMenuOpen ? "open" : ""}`}
-        >
-          <a href="/posts" className="block">
+        <div className="absolute top-full left-0 right-0 border-b border-gray-200 dark:border-gray-700 bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-4">
+          <a
+            href="/posts"
+            className="block transition-colors duration-200 ease-in-out;"
+          >
             Posts
           </a>
-          <a href="/tags" className="block mt-3">
-            Tags
+          <a
+            href="/series"
+            className="block mt-3 transition-colors duration-200 ease-in-out;"
+          >
+            Series
           </a>
-          <a href="/authors" className="block mt-3">
+          <a
+            href="/authors"
+            className="block mt-3 transition-colors duration-200 ease-in-out;"
+          >
             Authors
           </a>
-          <a href="/about" className="block mt-3">
+          <a
+            href="/tags"
+            className="block mt-3 transition-colors duration-200 ease-in-out;"
+          >
+            Tags
+          </a>
+          <a
+            href="/about"
+            className="block mt-3 transition-colors duration-200 ease-in-out;"
+          >
             About
           </a>
         </div>
