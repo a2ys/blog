@@ -4,28 +4,38 @@ const { title, author, authorAvatar, authorProfileLink, date, imageSrc, slug } =
   Astro.props;
 ---
 
-<div class="rounded-lg relative inline-block bg-gray-900 text-white">
-  <a href={`/blog/${slug}`}>
+<div
+  class="rounded-lg relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col"
+>
+  <a href={`/blog/${slug}`} class="block flex-grow">
     <img
-      class="w-full object-cover rounded-t-lg h-auto"
+      class="w-full object-cover rounded-t-lg h-48"
       src={imageSrc || "/placeholder.webp"}
       alt="Blog Card Image"
     />
-  </a>
-  <hr class="border-white border-t-1" />
-  <a href={`/blog/${slug}`}>
-    <div class="p-4">
-      <h1 class="text-lg sm:text-xl font-bold">{title}</h1>
-      <p class="py-1 text-sm sm:text-md">
+    <hr class="border-gray-200 dark:border-gray-700 border-t-1" />
+    <div class="p-4 flex flex-col justify-between h-full">
+      <h1 class="text-lg sm:text-xl font-bold mb-2 pb-2">
+        {title}
+      </h1>
+      <div
+        class="flex items-center py-1 border-t border-gray-200 dark:border-gray-700 text-sm sm:text-md text-gray-700 dark:text-gray-100 pt-2"
+      >
         <a href={authorProfileLink}>
           <img
             src={`/authors/${authorAvatar}`}
             alt="Author Avatar"
-            class="w-4 h-4 inline-block rounded-full mr-1"
+            class="w-6 h-6 inline-block rounded-full mr-2"
           />
         </a>
-        <a href={authorProfileLink}>{author}</a> • {formatDate(date)}
-      </p>
+        <a
+          href={authorProfileLink}
+          class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+          >{author}</a
+        >
+        <span class="mx-2">•</span>
+        <span>{formatDate(date)}</span>
+      </div>
     </div>
   </a>
 </div>
