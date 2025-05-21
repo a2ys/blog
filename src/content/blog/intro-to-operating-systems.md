@@ -5,6 +5,7 @@ date: 2025-05-14
 description: An introduction to Operating Systems, their functions, and their importance in computing.
 author: a2ys
 thumbnail: /thumbnails/dsa-intro.webp
+series: os
 ---
 
 Picture this: you press the power button on your laptop, and after a few moments, you're greeted with a colorful screen where you can click on icons to open your favorite apps. But have you ever stopped to wonder what's happening behind that pretty interface? What's actually making your computer... well, compute?

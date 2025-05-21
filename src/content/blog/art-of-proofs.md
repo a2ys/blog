@@ -11,6 +11,7 @@ tags:
 date: 2025-03-22
 description: An exploration of mathematical proof techniques, combining logical rigor with intuitive understanding to solve complex problems.
 author: a2ys
+series: toc
 thumbnail: /thumbnails/art-of-proofs.png
 featured: false
 ---

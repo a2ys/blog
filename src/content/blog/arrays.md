@@ -5,6 +5,7 @@ date: 2024-12-10
 description: An in-depth look at arrays, a fundamental data structure in computer science.
 author: a2ys
 thumbnail: /thumbnails/arrays.png
+series: dsa
 draft: true
 featured: false
 ---

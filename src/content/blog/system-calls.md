@@ -14,6 +14,7 @@ date: 2025-05-21
 description: A deep dive into system calls, the essential interface between user applications and the operating system kernel.
 author: a2ys
 thumbnail: /thumbnails/celeris.png
+series: os
 draft: false
 featured: false
 ---
@@ -25,6 +26,31 @@ featured: false
 In our previous posts, we've explored how your operating system manages multiple processes and decides which one gets CPU time next. But there's something fundamental we haven't addressed yet: How do these processes actually request services from the operating system? How does your web browser ask for a network connection, or your word processor save a file to disk?
 
 The answer lies in system calls — the essential interface between your applications and the powerful, privileged world of the operating system kernel.
+
+## Table of Contents
+
+- [The Boundary Between Two Worlds](#the-boundary-between-two-worlds)
+- [Why This Border Exists: The Protection Problem](#why-this-border-exists-the-protection-problem)
+- [System Calls: What They Actually Do](#system-calls-what-they-actually-do)
+  - [Process Control](#1-process-control)
+  - [File Management](#2-file-management)
+  - [Device Management](#3-device-management)
+  - [Information Maintenance](#4-information-maintenance)
+  - [Communication](#5-communication)
+  - [Protection](#6-protection)
+- [The Journey of a System Call](#the-journey-of-a-system-call)
+- [System Calls in the Wild](#system-calls-in-the-wild)
+  - [Web Browsing](#web-browsing)
+  - [Taking a Screenshot](#taking-a-screenshot)
+  - [Playing Music](#playing-music)
+- [See It For Yourself: System Call Tracing](#see-it-for-yourself-system-call-tracing)
+- [System Call Overhead: The Hidden Cost](#system-call-overhead-the-hidden-cost)
+- [Modern Trends in System Call Design](#modern-trends-in-system-call-design)
+  - [System Call Batching](#1-system-call-batching)
+  - [Asynchronous System Calls](#2-asynchronous-system-calls)
+  - [Extended APIs](#3-extended-apis)
+  - [Containerization Extensions](#4-containerization-extensions)
+- [Coming Up Next](#coming-up-next)
 
 ## The Boundary Between Two Worlds
 

@@ -13,6 +13,7 @@ date: 2025-05-21
 description: A deep dive into the difference between a process and a program, and why it matters in the world of computing.
 author: a2ys
 thumbnail: /thumbnails/celeris.png
+series: os
 draft: false
 featured: false
 ---

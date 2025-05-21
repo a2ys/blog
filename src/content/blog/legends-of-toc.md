@@ -11,6 +11,7 @@ tags:
 date: 2025-03-22
 description: Meet the brilliant minds whose ideas form the foundation of all modern computing systems.
 author: a2ys
+series: toc
 thumbnail: /thumbnails/toc-legends.png
 featured: false
 ---

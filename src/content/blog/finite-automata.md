@@ -5,6 +5,7 @@ date: 2025-03-23
 description: A post on analyzing the efficiency of algorithms.
 author: a2ys
 thumbnail: /thumbnails/algorithmic-analysis.webp
+series: toc
 featured: false
 ---
 

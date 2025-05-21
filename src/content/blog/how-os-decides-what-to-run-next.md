@@ -13,6 +13,7 @@ date: 2025-05-21
 description: A deep dive into how operating systems manage multitasking and decide which program gets to run next.
 author: a2ys
 thumbnail: /thumbnails/celeris.png
+series: os
 draft: false
 featured: false
 ---

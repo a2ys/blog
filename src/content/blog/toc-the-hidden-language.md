@@ -11,6 +11,7 @@ tags:
 date: 2025-03-22
 description: An exploration of the Theory of Computation, the mathematical framework that underlies all computing systems.
 author: a2ys
+series: toc
 thumbnail: /thumbnails/theory-of-computation.png
 featured: false
 ---
