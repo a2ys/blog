@@ -1,5 +1,5 @@
 ---
-const { name, description, slug } = Astro.props;
+const { name, abbreviation, description, slug } = Astro.props;
 
 function getSeriesColor(name: string) {
   const colors = [
@@ -19,12 +19,8 @@ function getSeriesColor(name: string) {
   return colors[Math.abs(hash) % colors.length];
 }
 
-const colorClass = getSeriesColor(name);
-const initials = name
-  .split(" ")
-  .map((word: string) => word[0])
-  .join("")
-  .toUpperCase();
+const colorClass = getSeriesColor(abbreviation || name);
+const initials = abbreviation.toUpperCase();
 ---
 
 <div

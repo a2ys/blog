@@ -4,6 +4,7 @@ const seriesCollection = defineCollection({
   type: "content",
   schema: z.object({
     name: z.string(),
+    abbreviation: z.string().optional(),
     description: z.string().optional(),
     coverImage: z.string().optional(),
   }),

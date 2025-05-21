@@ -29,6 +29,7 @@ const series = await getCollection("series");
           {series.map((item) => (
             <SeriesCard
               name={item.data.name}
+              abbreviation={item.data.abbreviation || ""}
               description={item.data.description || ""}
               slug={item.slug}
             />
