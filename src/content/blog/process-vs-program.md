@@ -5,6 +5,7 @@ description: A deep dive into the difference between a process and a program, an
 author: a2ys
 thumbnail: /thumbnails/process-vs-programs.png
 series: os
+seriesOrder: 3
 ---
 
 ## Introduction

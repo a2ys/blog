@@ -3,8 +3,9 @@ title: "Interrupts: Small Signals, Big Impact"
 date: 2025-05-22
 description: Diving into interrupts in operating systems, their types, and how they enable efficient multitasking.
 author: a2ys
-thumbnail: /thumbnails/os-intro.png
+thumbnail: /thumbnails/os-interrupts.png
 series: os
+seriesOrder: 7
 ---
 
 ## Introduction

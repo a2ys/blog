@@ -5,6 +5,7 @@ description: Learn system calls through hands-on C examples, with an in-depth ex
 author: a2ys
 thumbnail: /thumbnails/system-calls-c-examples.png
 series: os
+seriesOrder: 6
 ---
 
 ## Introduction

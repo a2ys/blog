@@ -3,8 +3,9 @@ title: "Context Switching: The Hidden Cost of Multitasking"
 date: 2025-05-22
 description: Exploring the concept of context switching in operating systems and its impact on performance.
 author: a2ys
-thumbnail: /thumbnails/os-intro.png
+thumbnail: /thumbnails/os-context-switching.png
 series: os
+seriesOrder: 8
 ---
 
 ## Introduction

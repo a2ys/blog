@@ -3,8 +3,9 @@ title: "Threads vs. Processes: When to Use Each and Why"
 date: 2025-05-22
 description: Understanding the differences between threads and processes, their use cases, and how they impact performance.
 author: a2ys
-thumbnail: /thumbnails/threads-vs-processes.png
+thumbnail: /thumbnails/os-threads-vs-processes.png
 series: os
+seriesOrder: 9
 ---
 
 ## Introduction

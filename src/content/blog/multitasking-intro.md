@@ -5,6 +5,7 @@ description: A look into the magic of multitasking in operating systems and how 
 author: a2ys
 thumbnail: /thumbnails/multitasking-intro.png
 series: os
+seriesOrder: 2
 ---
 
 ## Introduction

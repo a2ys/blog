@@ -5,6 +5,7 @@ description: A deep dive into system calls, the essential interface between user
 author: a2ys
 thumbnail: /thumbnails/system-calls.png
 series: os
+seriesOrder: 5
 ---
 
 ## Introduction

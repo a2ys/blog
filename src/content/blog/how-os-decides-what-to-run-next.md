@@ -5,6 +5,7 @@ description: A deep dive into how operating systems manage multitasking and deci
 author: a2ys
 thumbnail: /thumbnails/scheduling-intro.png
 series: os
+seriesOrder: 4
 ---
 
 ## Introduction
