@@ -14,9 +14,19 @@ const authors = await getCollection("author");
 
 const seriesPosts = allPosts
   .filter((post) => post.data.series && post.data.series.slug === slug)
-  .sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  );
+  .sort((a, b) => {
+    // First, sort by seriesOrder if both posts have it
+    if (a.data.seriesOrder !== undefined && b.data.seriesOrder !== undefined) {
+      return a.data.seriesOrder - b.data.seriesOrder;
+    }
+
+    // If only one has seriesOrder, prioritize it
+    if (a.data.seriesOrder !== undefined) return -1;
+    if (b.data.seriesOrder !== undefined) return 1;
+
+    // If neither has seriesOrder, fall back to date sorting (oldest first for series)
+    return new Date(a.data.date).getTime() - new Date(b.data.date).getTime();
+  });
 
 const { Content } = await seriesEntry.render();
 ---
@@ -51,21 +61,28 @@ const { Content } = await seriesEntry.render();
       {
         seriesPosts
           .filter((post) => !post.data.draft)
-          .map((post) => {
+          .map((post, index) => {
             const authorData = authors.find(
               (a) => a.slug === post.data.author.slug
             );
 
+            const displayOrder = post.data.seriesOrder || index + 1;
+
             return (
-              <BlogCard
-                title={post.data.title}
-                author={authorData?.data.name || "Unknown Author"}
-                authorAvatar={authorData?.data.avatar || ""}
-                authorProfileLink={`/author/${authorData?.slug || "#"}`}
-                date={post.data.date}
-                imageSrc={post.data.thumbnail}
-                slug={post.slug}
-              />
+              <div class="relative">
+                <div class="absolute -top-2 -left-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold z-10 shadow-md border border-gray-200 dark:border-gray-700">
+                  {displayOrder}
+                </div>
+                <BlogCard
+                  title={post.data.title}
+                  author={authorData?.data.name || "Unknown Author"}
+                  authorAvatar={authorData?.data.avatar || ""}
+                  authorProfileLink={`/author/${authorData?.slug || "#"}`}
+                  date={post.data.date}
+                  imageSrc={post.data.thumbnail}
+                  slug={post.slug}
+                />
+              </div>
             );
           })
       }

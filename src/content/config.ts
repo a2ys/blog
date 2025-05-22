@@ -24,6 +24,7 @@ const blogCollection = defineCollection({
     featured: z.boolean().default(false),
     thumbnail: z.string().optional(),
     series: reference("series").optional(),
+    seriesOrder: z.number().optional(),
   }),
 });
 
