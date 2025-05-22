@@ -5,6 +5,7 @@ description: Meet the brilliant minds whose ideas form the foundation of all mod
 author: a2ys
 series: toc
 thumbnail: /thumbnails/toc-the-brains.png
+seriesOrder: 2
 ---
 
 ## Introduction: The Minds Behind the Machines

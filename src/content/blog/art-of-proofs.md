@@ -5,6 +5,7 @@ description: An exploration of mathematical proof techniques, combining logical 
 author: a2ys
 series: toc
 thumbnail: /thumbnails/toc-proofs.png
+seriesOrder: 3
 ---
 
 ## The Symphony of Symbols: Understanding Formal Languages

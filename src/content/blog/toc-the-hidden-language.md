@@ -5,6 +5,7 @@ description: An exploration of the Theory of Computation, the mathematical frame
 author: a2ys
 series: toc
 thumbnail: /thumbnails/toc-intro.png
+seriesOrder: 1
 ---
 
 ## Introduction: Welcome to the Hidden Language of Machines

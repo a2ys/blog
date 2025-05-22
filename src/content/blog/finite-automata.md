@@ -5,6 +5,7 @@ description: A post on analyzing the efficiency of algorithms.
 author: a2ys
 thumbnail: /thumbnails/toc-finite-automata.png
 series: toc
+seriesOrder: 4
 ---
 
 ## Introduction: The Beauty of Simple Machines

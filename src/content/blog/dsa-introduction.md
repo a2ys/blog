@@ -5,6 +5,7 @@ description: An introduction to Data Structures and Algorithms.
 author: a2ys
 series: dsa
 thumbnail: /thumbnails/dsa-intro.webp
+seriesOrder: 1
 ---
 
 ## Introduction to the series

@@ -6,6 +6,7 @@ author: a2ys
 thumbnail: /thumbnails/algorithmic-analysis.webp
 series: dsa
 featured: true
+seriesOrder: 2
 ---
 
 ## Introduction
