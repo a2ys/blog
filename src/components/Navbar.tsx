@@ -31,12 +31,6 @@ const Navbar = () => {
           Authors
         </a>
         <a
-          href="/tags"
-          className="link text-xl transition-colors duration-200 ease-in-out;"
-        >
-          Tags
-        </a>
-        <a
           href="/about"
           className="link text-xl transition-colors duration-200 ease-in-out;"
         >
@@ -102,12 +96,6 @@ const Navbar = () => {
             className="block mt-3 transition-colors duration-200 ease-in-out;"
           >
             Authors
-          </a>
-          <a
-            href="/tags"
-            className="block mt-3 transition-colors duration-200 ease-in-out;"
-          >
-            Tags
           </a>
           <a
             href="/about"

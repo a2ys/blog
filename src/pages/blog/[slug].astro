@@ -1,6 +1,5 @@
 ---
 import Author from "../../components/Author.astro";
-import Tag from "../../components/Tag.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getEntry } from "astro:content";
 
@@ -51,15 +50,6 @@ if (!entry) {
     <div class="post-body">
       <Content />
     </div>
-    <footer
-      class="mt-12 text-center justify-center max-sm:grid grid-cols-1 min-[480px]:grid-cols-2 sm:flex gap-2"
-    >
-      {
-        entry.data.tags?.map((tag: string) => (
-          <Tag name={tag} styles="px-4 py-1" />
-        ))
-      }
-    </footer>
   </div>
 </Layout>
 
