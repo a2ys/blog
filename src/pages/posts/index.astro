@@ -20,13 +20,14 @@ const authors = await getCollection("author");
   >
     <h1 class="text-4xl sm:text-5xl font-black text-center">All Posts</h1>
     <p class="text-lg sm:text-xl text-center mt-4">
-      A collection of all the posts on Savant.
+      A collection of all the independent articles on Savant.
     </p>
     <hr class="border-t-2 border-gray-300 w-1/4 mx-auto mt-8 mb-32" />
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         blogPosts
           .filter((post) => !post.data.draft)
+          .filter((post) => !post.data.series?.slug)
           .map((post) => {
             const authorData = authors.find(
               (author) => author.slug === post.data.author.slug
