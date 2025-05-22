@@ -1,6 +1,5 @@
 ---
 title: Understanding Algorithm Analysis
-tags: ["DSA", "Data Structures", "Algorithms"]
 date: 2024-12-07
 description: A post on analyzing the efficiency of algorithms.
 author: a2ys

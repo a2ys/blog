@@ -1,21 +1,10 @@
 ---
 title: "How Your OS Decides Which Program Gets to Run Next"
-tags:
-  [
-    "Operating System",
-    "Multitasking",
-    "Process Scheduling",
-    "Concurrency",
-    "Computer Science",
-    "Programming",
-  ]
 date: 2025-05-21
 description: A deep dive into how operating systems manage multitasking and decide which program gets to run next.
 author: a2ys
-thumbnail: /thumbnails/celeris.png
+thumbnail: /thumbnails/scheduling-intro.png
 series: os
-draft: false
-featured: false
 ---
 
 ## Introduction

@@ -1,6 +1,5 @@
 ---
 title: Contributing to GitHub Repositories
-tags: ["Git", "GitHub", "Open Source"]
 date: 2024-12-15
 description: A comprehensive guide to contributing to GitHub repositories, covering cloning, forking, pull requests, and essential Git commands.
 author: a2ys

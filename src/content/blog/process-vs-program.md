@@ -1,21 +1,10 @@
 ---
 title: "Process vs. Program: Why the Difference Matters"
-tags:
-  [
-    "Process",
-    "Program",
-    "Operating System",
-    "Concurrency",
-    "Computer Science",
-    "Programming",
-  ]
 date: 2025-05-21
 description: A deep dive into the difference between a process and a program, and why it matters in the world of computing.
 author: a2ys
-thumbnail: /thumbnails/celeris.png
+thumbnail: /thumbnails/process-vs-programs.png
 series: os
-draft: false
-featured: false
 ---
 
 ## Introduction

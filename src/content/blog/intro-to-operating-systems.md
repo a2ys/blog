@@ -1,10 +1,9 @@
 ---
 title: Introduction to Operating Systems — What even is an OS?
-tags: ["Operating Systems", "OS", "Computer Science"]
 date: 2025-05-14
 description: An introduction to Operating Systems, their functions, and their importance in computing.
 author: a2ys
-thumbnail: /thumbnails/dsa-intro.webp
+thumbnail: /thumbnails/os-intro.png
 series: os
 ---
 

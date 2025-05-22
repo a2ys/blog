@@ -1,21 +1,10 @@
 ---
 title: "What's REALLY Happening When Your Computer 'Multitasks'?"
-tags:
-  [
-    "Multitasking",
-    "Operating System",
-    "Concurrency",
-    "Parallelism",
-    "Computer Science",
-    "Programming",
-  ]
 date: 2025-05-21
 description: A look into the magic of multitasking in operating systems and how it creates the illusion of simultaneous execution of multiple processes.
 author: a2ys
-thumbnail: /thumbnails/celeris.png
+thumbnail: /thumbnails/multitasking-intro.png
 series: os
-draft: false
-featured: false
 ---
 
 ## Introduction

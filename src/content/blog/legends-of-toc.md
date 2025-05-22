@@ -1,19 +1,10 @@
 ---
 title: "The Legends of TOC – Turing, Chomsky, Gödel & The Minds That Built Computing"
-tags:
-  [
-    "Computer Science",
-    "Theory of Computation",
-    "Computer History",
-    "Alan Turing",
-    "Noam Chomsky",
-  ]
 date: 2025-03-22
 description: Meet the brilliant minds whose ideas form the foundation of all modern computing systems.
 author: a2ys
 series: toc
-thumbnail: /thumbnails/toc-legends.png
-featured: false
+thumbnail: /thumbnails/toc-the-brains.png
 ---
 
 ## Introduction: The Minds Behind the Machines

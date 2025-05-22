@@ -1,22 +1,10 @@
 ---
 title: "System Calls: The Bridge Between User Space and Kernel Space"
-tags:
-  [
-    "System Calls",
-    "Operating System",
-    "Kernel",
-    "User Space",
-    "Kernel Space",
-    "Computer Science",
-    "Programming",
-  ]
 date: 2025-05-21
 description: A deep dive into system calls, the essential interface between user applications and the operating system kernel.
 author: a2ys
-thumbnail: /thumbnails/celeris.png
+thumbnail: /thumbnails/system-calls.png
 series: os
-draft: false
-featured: false
 ---
 
 ## Introduction

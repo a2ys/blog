@@ -7,7 +7,6 @@ author: a2ys
 thumbnail: /thumbnails/arrays.png
 series: dsa
 draft: true
-featured: false
 ---
 
 Arrays are one of the most essential components in computer science. They form the foundation for many advanced data structures and algorithms due to their simplicity and efficiency. In this article, we will explore the basics of arrays, their properties, and their applications in computer science. We will also discuss some common operations on arrays and their time complexity, along with the essential operations like searching and sorting. We will also look at some advanced topics like multidimensional arrays and dynamic arrays. Let's get started!

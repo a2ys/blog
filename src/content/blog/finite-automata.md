@@ -1,12 +1,10 @@
 ---
 title: "Finite Automata: The Language of Simplicity - When Machines Recognize Patterns"
-tags: [theory, automata, finite-automata]
 date: 2025-03-23
 description: A post on analyzing the efficiency of algorithms.
 author: a2ys
-thumbnail: /thumbnails/algorithmic-analysis.webp
+thumbnail: /thumbnails/toc-finite-automata.png
 series: toc
-featured: false
 ---
 
 ## Introduction: The Beauty of Simple Machines

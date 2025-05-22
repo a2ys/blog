@@ -1,19 +1,10 @@
 ---
 title: "Theory of Computation – The Hidden Language of Machines"
-tags:
-  [
-    "Computer Science",
-    "Theory of Computation",
-    "Automata",
-    "Formal Languages",
-    "Turing Machines",
-  ]
 date: 2025-03-22
 description: An exploration of the Theory of Computation, the mathematical framework that underlies all computing systems.
 author: a2ys
 series: toc
-thumbnail: /thumbnails/theory-of-computation.png
-featured: false
+thumbnail: /thumbnails/toc-intro.png
 ---
 
 ## Introduction: Welcome to the Hidden Language of Machines
