@@ -4,23 +4,27 @@ import { formatDate } from "../utils/dateFormat";
 const { slug, avatar, name, date, minutesRead } = Astro.props;
 ---
 
-<p class="flex items-center font-light leading-6 mt-4">
-  <a href={`/author/${slug}`} class="flex items-center mr-3">
+<div class="flex items-center mt-6 group">
+  <a href={`/author/${slug}`} class="flex-shrink-0">
     <img
       src={`/authors/${avatar}`}
       alt={`${name}'s avatar`}
-      class="w-10 h-10 max-[371px]:w-8 max-[371px]:h-8 rounded-full"
+      class="w-12 h-12 max-[371px]:w-10 max-[371px]:h-10 rounded-full ring-2 ring-white/20 shadow-lg object-cover hover:scale-105 transition-transform duration-200"
     />
   </a>
-  <span class="flex flex-col justify-center ml-0.5">
+  <div class="ml-3 min-w-0 flex-1">
     <a
       href={`/author/${slug}`}
-      class="text-xl font-bold max-[371px]:text-md max-sm:text-lg"
+      class="block text-lg font-semibold max-[371px]:text-base max-sm:text-base text-white/95 hover:text-white transition-colors duration-200 leading-tight"
     >
       {name}
     </a>
-    <span class="text-sm italic monospace-font max-sm:text-xs">
-      {minutesRead} • {formatDate(date)}
-    </span>
-  </span>
-</p>
+    <div
+      class="flex items-center mt-1 text-sm text-white/70 monospace-font max-sm:text-xs italic"
+    >
+      <span class="tracking-wide">{formatDate(date)}</span>
+      <span class="mx-2 opacity-50">•</span>
+      <span class="tracking-wide">{minutesRead}</span>
+    </div>
+  </div>
+</div>
