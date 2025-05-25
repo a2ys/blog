@@ -202,7 +202,7 @@ Perhaps most profoundly, their work collectively established the theoretical bou
 
 The concepts these pioneers developed continue to evolve. Modern complexity theory extends their work to classify problems not just as "computable" or "uncomputable," but according to the resources required to solve them. Quantum computing explores computational models that may transcend classical limitations in specific domains. AI research continues to explore the boundaries of machine intelligence that Turing first contemplated.
 
-### **Thought Experiment:**
+#### **Thought Experiment**
 
 Imagine our technological development if these thinkers had never existed. Would someone else have discovered the same principles? Would computing have developed along entirely different lines? Or would we still be working with mechanical calculators, lacking the theoretical foundation to build general-purpose computers?
 
