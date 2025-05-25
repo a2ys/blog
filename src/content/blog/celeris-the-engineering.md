@@ -1,6 +1,6 @@
 ---
 title: "Engineering of Celeris - The design, planning and architecture"
-date: 2025-04-07
+date: 2025-05-25
 description: An in-depth look into the design, planning and architecture of Celeris, a completely offline payments ecosystem.
 author: a2ys
 thumbnail: /thumbnails/celeris.png
