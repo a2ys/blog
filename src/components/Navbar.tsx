@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="space-x-8 max-[640px]:hidden">
-          {["Posts", "Series", "Authors", "About"].map((item) => (
+          {["Posts", "Series", "Authors", "Privacy", "About"].map((item) => (
             <a
               key={item}
               href={`/${item.toLowerCase()}`}
@@ -82,16 +82,18 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-full left-0 right-0 z-50 bg-gradient-to-b from-slate-800 to-gray-900 border-b border-slate-700/50 backdrop-blur-sm shadow-xl">
           <div className="p-6 space-y-4 max-w-7xl mx-auto z-50">
-            {["Posts", "Series", "Authors", "About"].map((item, index) => (
-              <a
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                className="block text-lg font-medium text-slate-200 hover:text-white hover:translate-x-2 transition-all duration-300 ease-out"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
+            {["Posts", "Series", "Authors", "Privacy", "About"].map(
+              (item, index) => (
+                <a
+                  key={item}
+                  href={`/${item.toLowerCase()}`}
+                  className="block text-lg font-medium text-slate-200 hover:text-white hover:translate-x-2 transition-all duration-300 ease-out"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              )
+            )}
           </div>
         </div>
       )}
