@@ -13,6 +13,10 @@ Celeris is one of the projects I really loved building. I got a the idea when I 
 
 Our team consisted of four members, and we had to build something that would be useful to people, and not just a project that would be used for the hackathon. We wanted to innovate.
 
+> Read the LinkedIn post [here](https://www.linkedin.com/posts/a2ys_we-built-something-we-were-proud-of-but-activity-7333173081642815490-mzj8?utm_source=share&utm_medium=member_desktop&rcm=ACoAADiYeaoBz7k0sh0yacSgYQfhVjjtqzUc3ZM).
+
+![Our Small Team](/blog-assets/celeris/our-team.jpg)
+
 In India, even though we have a system for UPI payments, there are still a lot of people who do not have access to the internet to perform a UPI transactions. There are a few solutions which are near to this from the Government of India, but they are either being developed, or not available to everyone due to lack of appropriate hardware in phones. We wanted to build a completely offline payments ecosystem that would allow people to make payments without the need for an internet connection. This is how the idea of Celeris was born.
 
 > This post is really long, and I will try to cover everything that I did in the project, from the design and architecture of the system, to the implementation of the different components. I will also try to cover the challenges that I faced while building the system, and how I overcame them. I will also try to cover the future plans for the project, and how it can be extended to include more features and functionalities. Be patient, and read through the whole post, as it will be worth it. I will also try to include a lot of code snippets, so that you can understand how the system works, and how you can build something similar. There is a lot to learn!
@@ -429,7 +433,7 @@ This system uses two main tables:
         name TEXT,
         phoneNumber TEXT
     );
-    ```
+   ```
 
 2. `users`: Stores user-specific metadata like balance. When a user signs up, an entry is created in both tables.
 
@@ -438,7 +442,7 @@ This system uses two main tables:
         id INTEGER PRIMARY KEY REFERENCES auth_table(id),
         balance NUMERIC DEFAULT 0
     );
-    ```
+   ```
 
 ###### Request Models
 
@@ -481,31 +485,31 @@ This auth system was intentionally kept simple:
 
 1. `get_db_connection()`
 
-    ```python
-    def get_db_connection() -> Tuple[Any, Any]:
-        """Create and return a database connection and cursor"""
-        connection = psycopg2.connect(**DB_CONFIG)
-        cursor = connection.cursor()
-        return connection, cursor
-    ```
+   ```python
+   def get_db_connection() -> Tuple[Any, Any]:
+       """Create and return a database connection and cursor"""
+       connection = psycopg2.connect(**DB_CONFIG)
+       cursor = connection.cursor()
+       return connection, cursor
+   ```
 
-    This utility loads database credentials from a `.env` file using `python-dotenv`, then establishes a PostgreSQL connection using `psycopg2`. It returns both the `connection` and the `cursor` for executing SQL queries. This keeps DB access clean and reusable across different modules.
+   This utility loads database credentials from a `.env` file using `python-dotenv`, then establishes a PostgreSQL connection using `psycopg2`. It returns both the `connection` and the `cursor` for executing SQL queries. This keeps DB access clean and reusable across different modules.
 
 2. `create_user()`
 
-    Initializes user-specific data. This utility function inserts a new entry into the `users` table after signup. It receives the `id`, `balance`, `name`, and `phoneNumber`, opens a DB connection, and performs the insert operation.
+   Initializes user-specific data. This utility function inserts a new entry into the `users` table after signup. It receives the `id`, `balance`, `name`, and `phoneNumber`, opens a DB connection, and performs the insert operation.
 
-    ```python
-    def create_user(id: int, balance: int, name: str, phoneNumber: str):
-    ...
-    cursor.execute("""
-        INSERT INTO users (id, balance, name, "phoneNumber")
-        VALUES (%s, %s, %s, %s)
-    """, (id, balance, name, phoneNumber))
-    ...
-    ```
+   ```python
+   def create_user(id: int, balance: int, name: str, phoneNumber: str):
+   ...
+   cursor.execute("""
+       INSERT INTO users (id, balance, name, "phoneNumber")
+       VALUES (%s, %s, %s, %s)
+   """, (id, balance, name, phoneNumber))
+   ...
+   ```
 
-    It's called right after a successful signup to initialize the user's extended profile. The `users` table is used to store additional data like `balance` which isn't part of the core auth system.
+   It's called right after a successful signup to initialize the user's extended profile. The `users` table is used to store additional data like `balance` which isn't part of the core auth system.
 
 #### Transaction Service: Core of Celeris Payments
 
@@ -515,56 +519,57 @@ This module powers the **actual money flow** within the Celeris platform - check
 
 1. `check_balance(client_id, amount)`
 
-    Checks whether a user has sufficient balance to make a payment.
+   Checks whether a user has sufficient balance to make a payment.
 
-    ```python
-    cursor.execute("SELECT balance FROM users WHERE id = %s;", (client_id,))
-    ```
+   ```python
+   cursor.execute("SELECT balance FROM users WHERE id = %s;", (client_id,))
+   ```
 
-    - Returns `True` if the user has enough funds, otherwise `False`.
-    - Used to **validate** transactions before initiating them.
+   - Returns `True` if the user has enough funds, otherwise `False`.
+   - Used to **validate** transactions before initiating them.
 
 2. `generate_sms(id, amount, status, typ)`
 
-    Triggers an external SMS notification by sending a request to the Celeris SMS gateway.
+   Triggers an external SMS notification by sending a request to the Celeris SMS gateway.
 
-    ```python
-    data = {
-        'phoneNumber': f"+91{phoneNumber}",
-        'message': f"{int(amount)}|{status}|{typ}"
-    }
-    requests.post(url, json=data)
-    ```
+   ```python
+   data = {
+       'phoneNumber': f"+91{phoneNumber}",
+       'message': f"{int(amount)}|{status}|{typ}"
+   }
+   requests.post(url, json=data)
+   ```
 
-    - Fetches the user’s phone number from the DB.
-    - Sends a structured message like `500|SUCCESS|SEND` to a the SMS gateway to send back to the user/merchant based on the type of transaction (provided by the argument `typ`). The IP address of the SMS gateway is exposed to the internet using ngrok, so that it can be accessed from anywhere. The IP address is stored in the `.env` file.
-    - Used for **user-facing feedback** after a transaction.
+   - Fetches the user’s phone number from the DB.
+   - Sends a structured message like `500|SUCCESS|SEND` to a the SMS gateway to send back to the user/merchant based on the type of transaction (provided by the argument `typ`). The IP address of the SMS gateway is exposed to the internet using ngrok, so that it can be accessed from anywhere. The IP address is stored in the `.env` file.
+   - Used for **user-facing feedback** after a transaction.
 
 3. `create_transaction(sender_id, receiver_id, amount, status)`
 
-    Records a transaction in the `transactions` table.
+   Records a transaction in the `transactions` table.
 
-    ```sql
-    INSERT INTO transactions (sender_id, receiver_id, amount, status)
-    ```
+   ```sql
+   INSERT INTO transactions (sender_id, receiver_id, amount, status)
+   ```
 
-    - Stores who paid whom, how much, and with what status (`SUCCESS`, `FAILED`, etc.).
-    - This is the official ledger for internal auditing.
+   - Stores who paid whom, how much, and with what status (`SUCCESS`, `FAILED`, etc.).
+   - This is the official ledger for internal auditing.
 
 4. `update_user(sender_id, receiver_id, amount)`
 
-    Performs the actual money movement by:
-    1. Decreasing the sender’s balance
-    2. Increasing the receiver’s balance
+   Performs the actual money movement by:
 
-    ```sql
-    UPDATE users SET balance = balance - %s WHERE id = %s
-    UPDATE users SET balance = balance + %s WHERE id = %s
-    ```
+   1. Decreasing the sender’s balance
+   2. Increasing the receiver’s balance
 
-    - Runs both updates in a transaction block (`BEGIN` ... `COMMIT`)
-    - Uses `RETURNING id` to ensure both updates succeeded
-    - Rolls back if anything fails
+   ```sql
+   UPDATE users SET balance = balance - %s WHERE id = %s
+   UPDATE users SET balance = balance + %s WHERE id = %s
+   ```
+
+   - Runs both updates in a transaction block (`BEGIN` ... `COMMIT`)
+   - Uses `RETURNING id` to ensure both updates succeeded
+   - Rolls back if anything fails
 
 ###### Design Notes
 
@@ -923,12 +928,8 @@ UI: `Login` fragment
 - On "Login" click:
   - Validates fields.
   - Sends a `LoginRequest` to the server via Retrofit.
-  - On success:
-        - Receives a `LoginResponse` containing user information.
-        - Stores user data using `AuthDatabaseHelper.saveUser(...)`.
-        - Navigates to `SecureActivity` (the main authenticated screen).
-  - On failure:
-        - Shows appropriate `Toast` for failure or network errors.
+  - On success: - Receives a `LoginResponse` containing user information. - Stores user data using `AuthDatabaseHelper.saveUser(...)`. - Navigates to `SecureActivity` (the main authenticated screen).
+  - On failure: - Shows appropriate `Toast` for failure or network errors.
 
 **Key Detail:**
 
@@ -1206,15 +1207,15 @@ When the user clicks the "Pay" button, the following steps occur:
 
 - The app constructs a raw message containing:
 
-    ```txt
-    <sender_id>|<receiver_id>|<amount>
-    ```
+  ```txt
+  <sender_id>|<receiver_id>|<amount>
+  ```
 
 - This message is then sent as an SMS using Android’s `SmsManager`:
 
-    ```kotlin
-    smsManager.sendTextMessage("<sms_gateway_phone_number>", null, msg, null, null)
-    ```
+  ```kotlin
+  smsManager.sendTextMessage("<sms_gateway_phone_number>", null, msg, null, null)
+  ```
 
 ###### Summary of the Flow
 
@@ -1373,11 +1374,11 @@ The utility uses the **ZXing (Zebra Crossing)** library to generate QR codes. He
    ```java
    QRCodeWriter writer = new QRCodeWriter();
     BitMatrix bitMatrix = writer.encode(merchantId, BarcodeFormat.QR_CODE, 512, 512);
-    ```
+   ```
 
-    - `QRCodeWriter` is a ZXing class that generates QR codes.
-    - `merchantId` is encoded into a `BitMatrix` using the `BarcodeFormat.QR_CODE` format.
-    - The dimensions of the QR are hardcoded to `512x512` pixels, ensuring high visual fidelity for scanning.
+   - `QRCodeWriter` is a ZXing class that generates QR codes.
+   - `merchantId` is encoded into a `BitMatrix` using the `BarcodeFormat.QR_CODE` format.
+   - The dimensions of the QR are hardcoded to `512x512` pixels, ensuring high visual fidelity for scanning.
 
 2. **Render the BitMatrix to a Bitmap**
 
@@ -1385,22 +1386,22 @@ The utility uses the **ZXing (Zebra Crossing)** library to generate QR codes. He
    Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
    ```
 
-    - A `Bitmap` is initialized to hold the visual QR code.
-    - `RGB_565` format is used for memory-efficient bitmap creation (uses 2 bytes per pixel).
+   - A `Bitmap` is initialized to hold the visual QR code.
+   - `RGB_565` format is used for memory-efficient bitmap creation (uses 2 bytes per pixel).
 
 3. **Paint the QR pixels manually**
 
-    ```java
-    for (int x = 0; x < width; x++) {
-        for (int y = 0; y < height; y++) {
-            bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
-        }
-    }
-    ```
+   ```java
+   for (int x = 0; x < width; x++) {
+       for (int y = 0; y < height; y++) {
+           bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+       }
+   }
+   ```
 
-    - The nested loops iterate over every pixel in the matrix.
-    - The pixel is painted black if the bit at that location is `true`, else it's painted **white**.
-    - This ensures precise control over QR code rendering, which is crucial for scanner compatibility.
+   - The nested loops iterate over every pixel in the matrix.
+   - The pixel is painted black if the bit at that location is `true`, else it's painted **white**.
+   - This ensures precise control over QR code rendering, which is crucial for scanner compatibility.
 
 4. **Error Handling**
 
@@ -1408,9 +1409,9 @@ The utility uses the **ZXing (Zebra Crossing)** library to generate QR codes. He
    catch (WriterException e) {
         e.printStackTrace();
     }
-    ```
+   ```
 
-    If the QR code encoding fails (due to unsupported input or internal ZXing errors), the method logs the stack trace and returns `null`.
+   If the QR code encoding fails (due to unsupported input or internal ZXing errors), the method logs the stack trace and returns `null`.
 
 ###### Usage Context in Celeris
 
@@ -1448,62 +1449,62 @@ class NetworkMonitor(
 
 1. ConnectivityManager Reference
 
-    ```kotlin
-    private val connectivityManager =
-        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    ```
+   ```kotlin
+   private val connectivityManager =
+       context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+   ```
 
-    Fetches the system-level connectivity service for managing network state.
+   Fetches the system-level connectivity service for managing network state.
 
 2. Online State Memory
 
-    ```kotlin
-    private var wasOnline = false
-    ```
+   ```kotlin
+   private var wasOnline = false
+   ```
 
-    Stores the last known state of connectivity to detect state transitions (e.g., offline → online).
+   Stores the last known state of connectivity to detect state transitions (e.g., offline → online).
 
 3. NetworkCallback
 
-    ```kotlin
-    private val networkCallback = object : ConnectivityManager.NetworkCallback() {
-        ...
-    }
-    ```
+   ```kotlin
+   private val networkCallback = object : ConnectivityManager.NetworkCallback() {
+       ...
+   }
+   ```
 
-    Implements two key override methods:
+   Implements two key override methods:
 
-    - **onAvailable**:
+   - **onAvailable**:
 
-        Triggered when a new network becomes available.
+     Triggered when a new network becomes available.
 
-        ```kotlin
-        override fun onAvailable(network: Network) {
-            val isOnline = isCurrentlyOnline()
-            if (!wasOnline && isOnline) {
-                onNetworkChange(true, true) // Just came online
-            } else {
-                onNetworkChange(true, false)
-            }
-            wasOnline = true
-        }
-        ```
+     ```kotlin
+     override fun onAvailable(network: Network) {
+         val isOnline = isCurrentlyOnline()
+         if (!wasOnline && isOnline) {
+             onNetworkChange(true, true) // Just came online
+         } else {
+             onNetworkChange(true, false)
+         }
+         wasOnline = true
+     }
+     ```
 
-        - Double-checks if the network is truly online using `isCurrentlyOnline()`.
-        - Differentiates between continuous online state and transition from offline.
+     - Double-checks if the network is truly online using `isCurrentlyOnline()`.
+     - Differentiates between continuous online state and transition from offline.
 
-    - **onLost**:
+   - **onLost**:
 
-        Triggered when the network connection is lost.
+     Triggered when the network connection is lost.
 
-        ```kotlin
-        override fun onLost(network: Network) {
-            onNetworkChange(false, false)
-            wasOnline = false
-        }
-        ```
+     ```kotlin
+     override fun onLost(network: Network) {
+         onNetworkChange(false, false)
+         wasOnline = false
+     }
+     ```
 
-        - Immediately fires the callback with `isOnline = false`.
+     - Immediately fires the callback with `isOnline = false`.
 
 ###### Start & Stop Listening
 
