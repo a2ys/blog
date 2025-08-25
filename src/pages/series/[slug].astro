@@ -13,7 +13,7 @@ const allPosts = await getCollection("blog");
 const authors = await getCollection("author");
 
 const seriesPosts = allPosts
-  .filter((post) => post.data.series && post.data.series.slug === slug)
+  .filter((post) => post.data.series && post.data.series.id === slug)
   .sort((a, b) => {
     // First, sort by seriesOrder if both posts have it
     if (a.data.seriesOrder !== undefined && b.data.seriesOrder !== undefined) {
@@ -90,7 +90,7 @@ const { Content } = await seriesEntry.render();
             .filter((post) => !post.data.draft)
             .map((post, index) => {
               const authorData = authors.find(
-                (a) => a.slug === post.data.author.slug
+                (a) => a.slug === post.data.author.id
               );
 
               const displayOrder = post.data.seriesOrder || index + 1;

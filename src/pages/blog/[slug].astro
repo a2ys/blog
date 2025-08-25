@@ -13,9 +13,9 @@ if (!entry) {
   throw new Error(`Post not found for slug: ${slug}`);
 }
 
-const authorEntry = await getEntry("author", entry.data.author.slug);
+const authorEntry = await getEntry("author", entry.data.author.id);
 if (!authorEntry) {
-  throw new Error(`Author not found for reference: ${entry.data.author.slug}`);
+  throw new Error(`Author not found for reference: ${entry.data.author.id}`);
 }
 
 const { Content, remarkPluginFrontmatter } = await entry.render();
@@ -42,7 +42,7 @@ if (!entry) {
         {entry.data.title}
       </h1>
       <Author
-        slug={entry.data.author.slug}
+        slug={entry.data.author.id}
         avatar={authorEntry.data.avatar}
         name={authorEntry.data.name}
         date={entry.data.date}
@@ -111,7 +111,7 @@ if (!entry) {
 
   h6 {
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 1rem 0 0.25rem 0;
     line-height: 1.4;
     color: #4b5563;

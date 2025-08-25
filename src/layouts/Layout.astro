@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import ClientRouter from "astro/components/ClientRouter.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar";
 import Posthog from "../components/PostHog.astro";
@@ -66,7 +66,7 @@ const { title, ogimage, description } = Astro.props;
     />
 
     <title>{title || "Blog"}</title>
-    <ViewTransitions />
+    <ClientRouter />
     <Posthog />
   </head>
   <body class="min-h-[100vh] flex flex-col">

@@ -12,7 +12,7 @@ const authors = await getCollection("author");
 
 const independentPosts = blogPosts
   .filter((post) => !post.data.draft)
-  .filter((post) => !post.data.series?.slug);
+  .filter((post) => !post.data.series?.id);
 ---
 
 <Layout
@@ -84,7 +84,7 @@ const independentPosts = blogPosts
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {independentPosts.map((post) => {
                 const authorData = authors.find(
-                  (author) => author.slug === post.data.author.slug
+                  (author) => author.slug === post.data.author.id
                 );
 
                 return (
@@ -92,7 +92,7 @@ const independentPosts = blogPosts
                     title={post.data.title}
                     author={authorData?.data.name || "Unknown Author"}
                     authorAvatar={authorData?.data.avatar}
-                    authorProfileLink={`/author/${post.data.author.slug}`}
+                    authorProfileLink={`/author/${post.data.author.id}`}
                     date={post.data.date}
                     imageSrc={post.data.thumbnail}
                     slug={post.slug}

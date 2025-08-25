@@ -21,7 +21,7 @@ const authors = await getCollection("author");
         .slice(0, 3)
         .map((post) => {
           const authorData = authors.find(
-            (author) => author.slug === post.data.author.slug
+            (author) => author.slug === post.data.author.id
           );
 
           return (
@@ -29,7 +29,7 @@ const authors = await getCollection("author");
               title={post.data.title}
               author={authorData?.data.name || "Unknown Author"}
               authorAvatar={authorData?.data.avatar}
-              authorProfileLink={`/author/${post.data.author.slug}`}
+              authorProfileLink={`/author/${post.data.author.id}`}
               date={post.data.date}
               imageSrc={post.data.thumbnail}
               slug={post.slug}
