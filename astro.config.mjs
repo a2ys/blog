@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 
 import tailwind from "@astrojs/tailwind";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import { remarkReadingTime } from "./remark-reading-time.mjs";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";

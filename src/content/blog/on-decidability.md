@@ -58,4 +58,4 @@ We have a logical impossibility - a contradiction. The `Paradox` program cannot 
 
 This discovery wasn't just a party trick for logicians. It established that there are concrete, important problems that computers will never be able to solve, no matter how powerful they become. It's a permanent wall, a hard limit on the power of computation.
 
-With these theoretical limits established, our story now pivots. The focus shifts from pure logic to the physical world. How do we actually represent and manipulate information? The answer would come from a man named Claude Shannon, who was about to invent the future. But before that, let's get a bit more theoretical as a side-quest. 😉
+With these theoretical limits established, our story now pivots. The focus shifts from pure logic to the physical world. How do we actually represent and manipulate information? The answer would come from a man named Claude Shannon, who was about to invent the future.
