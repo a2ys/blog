@@ -4,7 +4,7 @@ date: 2024-12-15
 description: A comprehensive guide to contributing to GitHub repositories, covering cloning, forking, pull requests, and essential Git commands.
 author: a2ys
 thumbnail: /thumbnails/contributing-to-github-repositories.png
-draft: true
+draft: false
 ---
 
 Contributing to a GitHub repository requires an understanding of Git and collaborative workflows. This guide covers cloning, forking, pull requests, and essential Git commands, along with a list of resources if you need more help. Most of the time, cloning, forking, pull requests and basic Git commands are enough to get you going, but it's always good to have a list of resources to refer to when you need help. Let's dive in!
@@ -39,7 +39,6 @@ To contribute to an open-source project in a futureproof manner, you should idea
 1. **Identify the Repository**: Navigate to the target repository’s page on GitHub. This repository serves as the central hub for project coordination.
 
 2. **Clone the Repository**:
-
    - Copy the HTTPS or SSH URL from the repository’s GitHub page. The URL is typically displayed under the **Code** button.
 
      ![Clone Repository](/blog-assets/git-and-github/clone-repo.png)
@@ -91,7 +90,6 @@ After you're done cloning the repository and navigating to the project directory
 3. **Stage Changes**:
 
    Staging prepares changes for inclusion in the repository's history and allows you to group related changes together. This also prepares the changes for a commit. You can stage changes with the following commands:
-
    - To stage specific files:
 
      ```bash
@@ -192,7 +190,6 @@ After you've made the changes and pushed them to the remote repository, you need
    ```
 
 2. **Create the Pull Request**:
-
    - Go to your fork on GitHub.
    - Click the **Pull Requests** tab and select **New Pull Request**.
      ![New Pull Request](/blog-assets/git-and-github/new-pull-request.png)
@@ -202,7 +199,6 @@ After you've made the changes and pushed them to the remote repository, you need
      ![Add Title and Description](/blog-assets/git-and-github/add-title-and-description.png)
 
 3. **Submit the PR**:
-
    - Click **Create Pull Request** and include supplementary information if necessary.
 
 4. **Respond to Feedback**: Engage with maintainers to address comments or requested changes, ensuring the PR meets project requirements.
