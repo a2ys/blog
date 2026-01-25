@@ -9,25 +9,25 @@ importers:
   .:
     dependencies:
       '@astrojs/check':
-        specifier: ^0.9.4
+        specifier: ^0.9.6
         version: 0.9.6(prettier@3.8.1)(typescript@5.9.3)
       '@astrojs/react':
-        specifier: ^4.3.0
+        specifier: ^4.4.2
         version: 4.4.2(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(jiti@1.21.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yaml@2.8.2)
       '@astrojs/tailwind':
         specifier: ^6.0.2
         version: 6.0.2(astro@5.16.15(@vercel/functions@2.2.13)(jiti@1.21.7)(rollup@4.56.0)(typescript@5.9.3)(yaml@2.8.2))(tailwindcss@3.4.19(yaml@2.8.2))
       '@astrojs/vercel':
-        specifier: ^8.2.6
+        specifier: ^8.2.11
         version: 8.2.11(astro@5.16.15(@vercel/functions@2.2.13)(jiti@1.21.7)(rollup@4.56.0)(typescript@5.9.3)(yaml@2.8.2))(react@18.3.1)(rollup@4.56.0)
       '@types/react':
-        specifier: ^18.3.11
+        specifier: ^18.3.27
         version: 18.3.27
       '@types/react-dom':
-        specifier: ^18.3.0
+        specifier: ^18.3.7
         version: 18.3.7(@types/react@18.3.27)
       astro:
-        specifier: ^5.13.3
+        specifier: ^5.16.15
         version: 5.16.15(@vercel/functions@2.2.13)(jiti@1.21.7)(rollup@4.56.0)(typescript@5.9.3)(yaml@2.8.2)
       mdast-util-to-string:
         specifier: ^4.0.0
@@ -48,10 +48,10 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
       tailwindcss:
-        specifier: ^3.4.13
+        specifier: ^3.4.19
         version: 3.4.19(yaml@2.8.2)
       typescript:
-        specifier: ^5.6.2
+        specifier: ^5.9.3
         version: 5.9.3
 
 packages:
